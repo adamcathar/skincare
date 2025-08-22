@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fancy 7‑Day Skincare Routine</title>
+<style>
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(120deg, #f3f7fa, #eef2f7);
+    margin: 0;
+    padding: 20px;
+    color: #333;
+  }
+  h1 {
+    text-align: center;
+    color: #2a4d69;
+    margin-bottom: 1rem;
+  }
+  .section {
+    max-width: 600px;
+    margin: auto;
+  }
+  .accordion {
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease;
+  }
+  .accordion:hover {
+    transform: translateY(-2px);
+  }
+  .accordion-header {
+    padding: 15px 20px;
+    background: #4a90e2;
+    color: #fff;
+    cursor: pointer;
+    position: relative;
+    font-size: 1.1rem;
+    font-weight: 500;
+  }
+  .accordion-header::after {
+    content: '+';
+    position: absolute;
+    right: 20px;
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+  }
+  .accordion-header.active::after {
+    transform: rotate(45deg);
+  }
+  .accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    background: #fafafa;
+    transition: max-height 0.4s ease;
+  }
+  .accordion-content ul {
+    list-style: none;
+    padding: 15px 20px;
+    margin: 0;
+  }
+  .accordion-content li {
+    margin-bottom: 8px;
+    padding-left: 1.2em;
+    position: relative;
+  }
+  .accordion-content li::before {
+    content: '•';
+    color: #4a90e2;
+    position: absolute;
+    left: 0;
+  }
+  /* AM Section */
+  .am-title {
+    background: #2a4d69;
+    color: #fff;
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+  }
+</style>
+</head>
+<body>
+
+<h1>7‑Day Skincare Routine</h1>
+
+<div class="section">
+  <div class="am-title">
+    <strong>Daily AM Routine (Same Every Day)</strong>
+    <ul>
+      <li>Cleanse: Normal face &amp; beard wash</li>
+      <li>Hydrate: Hyaluronic acid</li>
+      <li>Antioxidant: Glowing facial oil (Vit C, ferulic acid, Vit E)</li>
+      <li>Eyes: Brightening eye cream</li>
+      <li>Seal (optional): Day mask (light layer)</li>
+      <li>Protect: SPF</li>
+    </ul>
+  </div>
+
+  <!-- PM Days -->
+  <div class="accordion">
+    <div class="accordion-header">Monday</div>
+    <div class="accordion-content">
+      <ul>
+        <li>Cleanse: Normal wash</li>
+        <li>Hydrate: Hyaluronic acid</li>
+        <li>Treat: Retinol</li>
+        <li>Support: Collagen</li>
+        <li>Eyes: Under‑eye roller (HA)</li>
+        <li>Seal: Night mask</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <div class="accordion-header">Tuesday</div>
+    <div class="accordion-content">
+      <ul>
+        <li>Exfoliate: Chemical exfoliant wash</li>
+        <li>Mask: Clay mask (rinse)</li>
+        <li>Hydrate: Hyaluronic acid</li>
+        <li>Support: Collagen</li>
+        <li>Eyes: Under‑eye roller</li>
+        <li>Seal: Night mask</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <div class="accordion-header">Wednesday</div>
+    <div class="accordion-content">
+      <ul>
+        <li>Cleanse: Normal wash</li>
+        <li>Mask: Gold peel‑off mask</li>
+        <li>Hydrate: Hyaluronic acid</li>
+        <li>Support: Collagen</li>
+        <li>Eyes: Under‑eye roller</li>
+        <li>Seal: Night mask</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <div class="accordion-header">Thursday</div>
+    <div class="accordion-content">
+      <ul>
+        <li>Cleanse: Normal wash</li>
+        <li>Hydrate: Hyaluronic acid</li>
+        <li>Treat: Retinol</li>
+        <li>Support: Collagen</li>
+        <li>Eyes: Under‑eye roller</li>
+        <li>Seal: Night mask</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <div class="accordion-header">Friday</div>
+    <div class="accordion-content">
+      <ul>
+        <li>Exfoliate: Physical exfoliant wash</li>
+        <li>Hydrate: Hyaluronic acid</li>
+        <li>Support: Collagen</li>
+        <li>Eyes: Under‑eye roller</li>
+        <li>Seal: Night mask</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <div class="accordion-header">Saturday</div>
+    <div class="accordion-content">
+      <ul>
+        <li>Cleanse: Normal wash</li>
+        <li>Hydrate: Hyaluronic acid</li>
+        <li>Treat: Retinol</li>
+        <li>Support: Collagen</li>
+        <li>Eyes: Under‑eye roller</li>
+        <li>Seal: Night mask</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <div class="accordion-header">Sunday</div>
+    <div class="accordion-content">
+      <ul>
+        <li>Cleanse: Normal wash</li>
+        <li>Mask: Charcoal peel‑off mask</li>
+        <li>Hydrate: Hyaluronic acid</li>
+        <li>Support: Collagen</li>
+        <li>Eyes: Under‑eye roller</li>
+        <li>Seal: Night mask</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<script>
+  const accordions = document.querySelectorAll('.accordion-header');
+  accordions.forEach(header => {
+    header.addEventListener('click', () => {
+      const open = header.classList.contains('active');
+      document.querySelectorAll('.accordion-header').forEach(h => h.classList.remove('active'));
+      document.querySelectorAll('.accordion-content').forEach(c => c.style.maxHeight = null);
+      if (!open) {
+        header.classList.add('active');
+        const content = header.nextElementSibling;
+        content.style.maxHeight = content.scrollHeight + "px";
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
