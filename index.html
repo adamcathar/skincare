@@ -3,100 +3,143 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Monthly Skincare Calendar</title>
+<title>7‑Day Skincare Routine</title>
 <style>
-    body { font-family: 'Segoe UI', sans-serif; background: #f4f4f4; margin: 0; }
-    header { background: #1f1f1f; color: #fff; text-align: center; padding: 20px; }
-    h1 { margin: 0; }
-    main { max-width: 1100px; margin: auto; padding: 20px; }
-
-    /* Drawer style */
+    body {
+        font-family: 'Segoe UI', Roboto, sans-serif;
+        background-color: #f7f7f7;
+        color: #222;
+        margin: 0;
+        line-height: 1.6;
+    }
+    header {
+        background: linear-gradient(135deg, #1f1f1f, #3a3a3a);
+        color: #fff;
+        text-align: center;
+        padding: 30px 20px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+    header h1 { margin: 0; font-size: 2rem; }
+    header p { color: #ccc; margin-top: 6px; }
+    main {
+        max-width: 900px;
+        margin: auto;
+        padding: 20px;
+    }
+    /* Drawer styling */
     .drawer {
         background: #fff;
-        border-radius: 6px;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        border-radius: 8px;
         overflow: hidden;
-        margin-bottom: 20px;
+        margin-bottom: 25px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
     .drawer-header {
-        background: #333;
+        background: #2c2c2c;
         color: #fff;
-        padding: 15px;
+        padding: 15px 20px;
+        font-size: 1.1rem;
         cursor: pointer;
-        font-weight: bold;
+        user-select: none;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .drawer-header span {
+        display: inline-block;
+        transition: transform 0.3s ease;
+    }
+    .drawer-header.open span {
+        transform: rotate(90deg);
     }
     .drawer-content {
         max-height: 0;
         overflow: hidden;
-        transition: max-height 0.4s ease;
-        padding: 0 15px;
+        background: #fff;
+        transition: max-height 0.4s ease, padding 0.4s ease;
+        padding: 0 20px;
     }
     .drawer-content.open {
-        padding: 15px;
-        max-height: 2000px; /* large to accommodate content */
+        padding: 20px;
+        max-height: 2000px;
     }
-
-    /* Calendar */
-    .calendar {
-        display: grid;
-        grid-template-columns: repeat(7, 1fr);
-        gap: 10px;
+    .drawer-content h3 {
+        margin-top: 15px;
+        color: #333;
     }
-    .day-cell {
+    .drawer-content p, .drawer-content ul {
+        margin: 5px 0 15px;
+        font-size: 0.95rem;
+    }
+    /* Routine Days */
+    .day {
         background: #fff;
-        border: 1px solid #ddd;
-        border-radius: 4px;
-        padding: 10px;
-        display: flex;
-        flex-direction: column;
+        border-radius: 8px;
+        margin-bottom: 15px;
+        box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+        padding: 15px 20px;
     }
-    .day-name {
-        font-weight: bold;
-        margin-bottom: 5px;
-        background: #eee;
-        padding: 4px;
+    .day h2 {
+        margin-top: 0;
+        font-size: 1.2rem;
+        border-bottom: 2px solid #eee;
+        padding-bottom: 6px;
+    }
+    .am { color: #0b5394; font-weight: 500; }
+    .pm { color: #741b47; font-weight: 500; margin-top: 6px; }
+    footer {
         text-align: center;
-        border-radius: 3px;
+        padding: 20px;
+        font-size: 0.85rem;
+        color: #777;
     }
-    .am { color: #0b5394; font-size: 0.85em; margin-bottom: 4px; }
-    .pm { color: #741b47; font-size: 0.85em; }
 </style>
 </head>
 <body>
 
 <header>
-    <h1>Monthly Skincare Routine</h1>
-    <p>Manly, clean, and low‑shine — mapped for the whole month</p>
+    <h1>7‑Day Skincare Routine</h1>
+    <p>Clean, healthy, low‑shine results with precise daily steps</p>
 </header>
 
 <main>
 
-<!-- Drawer for product info -->
 <div class="drawer">
-    <div class="drawer-header">Product Information</div>
+    <div class="drawer-header">Product Information <span>▶</span></div>
     <div class="drawer-content">
         <h3>Toner — Witch Hazel + Tea Tree + Willow Bark</h3>
         <p>Balances skin, controls oil, preps for serums. Mist 3–4 sprays from 6–8 inches away; air‑dry 30–60s.</p>
+
         <h3>Vitamin B, C, E & Niacinamide Serum</h3>
         <p>Brightens, strengthens, controls oil. Use 3–4 drops AM, pat in, avoid eyelids.</p>
-        <h3>Hyaluronic Acid (HA) Serum</h3>
+
+        <h3>Hyaluronic Acid Serum</h3>
         <p>Pure hydration without heaviness. 3–4 drops, pat in.</p>
+
         <h3>HA + Rice Ferment Night Booster</h3>
         <p>Hydrates and brightens. PM only, 3–4 drops.</p>
-        <h3>Niacinamide 5% + Squalane Serum</h3>
+
+        <h3>Niacinamide 5% + Squalane</h3>
         <p>Oil control + light hydration. PM on assigned nights, 3 drops.</p>
-        <h3>Collagen Liquid Serum</h3>
+
+        <h3>Collagen Serum</h3>
         <p>Supports firmness. PM on assigned nights, 3–4 drops.</p>
+
         <h3>Retinol Serum</h3>
         <p>Cell turnover, anti‑ageing. PM only, twice per week, 2–3 drops. Avoid eyes. Wait 2 min before next step. No masks/Vitamin C same night.</p>
+
         <h3>Collagen Cream</h3>
         <p>Light moisture & firmness. Half‑pea AM daily; PM on retinol nights. Apply perimeter of face.</p>
+
         <h3>Vitamin C Cream</h3>
         <p>Brightens, evens tone. PM only, not with retinol.</p>
+
         <h3>Night Mask — Peptides + Ceramides</h3>
         <p>Overnight hydration, barrier support. Thin layer on assigned nights; avoid T‑zone if oily.</p>
+
         <h3>Lavender Melatonin Eye Cream</h3>
         <p>Soothes under‑eyes. Rice‑grain per eye nightly; dab gently.</p>
+
         <h3>Masks</h3>
         <ul>
             <li><strong>Hydrating Clay:</strong> 10–15 min</li>
@@ -107,78 +150,57 @@
     </div>
 </div>
 
-<!-- Monthly calendar -->
-<section>
-    <h2>This Month’s Schedule</h2>
-    <div class="calendar" id="calendar"></div>
-</section>
+<div class="day">
+    <h2>Day 1</h2>
+    <div class="am">AM: Cleanse → Toner → Vit B/C/E + Niacinamide → HA Serum → Collagen Cream → Sunscreen</div>
+    <div class="pm">PM: Cleanse → Hydrating Clay Mask → HA+Rice Booster → Niacinamide+Squalane → Eye Cream → Night Mask (skip T‑zone)</div>
+</div>
+
+<div class="day">
+    <h2>Day 2</h2>
+    <div class="am">Same as Day 1 AM</div>
+    <div class="pm">PM: Cleanse → Retinol → HA Serum → Collagen Cream (perimeter) → Eye Cream</div>
+</div>
+
+<div class="day">
+    <h2>Day 3</h2>
+    <div class="am">Same as Day 1 AM</div>
+    <div class="pm">PM: Cleanse → Peel‑Off Charcoal → HA+Rice Booster → Collagen Serum → Eye Cream → Night Mask (cheeks)</div>
+</div>
+
+<div class="day">
+    <h2>Day 4</h2>
+    <div class="am">Same as Day 1 AM</div>
+    <div class="pm">PM: Cleanse → Niacinamide+Squalane → Collagen Serum → Vitamin C Cream (cheeks) → Eye Cream</div>
+</div>
+
+<div class="day">
+    <h2>Day 5</h2>
+    <div class="am">Same as Day 1 AM</div>
+    <div class="pm">PM: Cleanse → Kaolin/Bentonite/Charcoal → HA+Rice Booster → Collagen Serum → Eye Cream → Night Mask (perimeter)</div>
+</div>
+
+<div class="day">
+    <h2>Day 6</h2>
+    <div class="am">Same as Day 1 AM</div>
+    <div class="pm">PM: Cleanse → Retinol → HA Serum → Collagen Cream (perimeter) → Eye Cream</div>
+</div>
+
+<div class="day">
+    <h2>Day 7</h2>
+    <div class="am">Same as Day 1 AM</div>
+    <div class="pm">PM: Cleanse → Gold Peel‑Off → HA+Rice Booster → Collagen Serum → Eye Cream → Night Mask (cheeks)</div>
+</div>
 
 </main>
 
+<footer>
+    Designed by Kasey for clarity, easy daily execution.
+</footer>
+
 <script>
-const routine = [
-    {
-        am: "Cleanse → Toner → Vit B/C/E + Niacinamide → HA Serum → Collagen Cream → Sunscreen",
-        pm: "Cleanse → Hydrating Clay Mask → HA+Rice Booster → Niacinamide+Squalane → Eye Cream → Night Mask (skip T‑zone)"
-    },
-    {
-        am: "Same as Day 1 AM",
-        pm: "Cleanse → Retinol → HA Serum → Collagen Cream (perimeter) → Eye Cream"
-    },
-    {
-        am: "Same as Day 1 AM",
-        pm: "Cleanse → Peel‑Off Charcoal → HA+Rice Booster → Collagen Serum → Eye Cream → Night Mask (cheeks)"
-    },
-    {
-        am: "Same as Day 1 AM",
-        pm: "Cleanse → Niacinamide+Squalane → Collagen Serum → Vitamin C Cream (cheeks) → Eye Cream"
-    },
-    {
-        am: "Same as Day 1 AM",
-        pm: "Cleanse → Kaolin/Bentonite/Charcoal Mask → HA+Rice Booster → Collagen Serum → Eye Cream → Night Mask (perimeter)"
-    },
-    {
-        am: "Same as Day 1 AM",
-        pm: "Cleanse → Retinol → HA Serum → Collagen Cream (perimeter) → Eye Cream"
-    },
-    {
-        am: "Same as Day 1 AM",
-        pm: "Cleanse → Gold Peel‑Off → HA+Rice Booster → Collagen Serum → Eye Cream → Night Mask (cheeks)"
-    }
-];
-
-// Generate a 4-week (28-day) grid
-const daysOfWeek = ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
-const calendar = document.getElementById("calendar");
-
-for(let week=0; week<4; week++){
-    for(let day=0; day<7; day++){
-        const cell = document.createElement("div");
-        cell.classList.add("day-cell");
-        const dayName = document.createElement("div");
-        dayName.classList.add("day-name");
-        dayName.textContent = daysOfWeek[day] + " (Week " + (week+1) + ")";
-        const am = document.createElement("div");
-        am.classList.add("am");
-        am.textContent = "AM: " + routine[day].am;
-        const pm = document.createElement("div");
-        pm.classList.add("pm");
-        pm.textContent = "PM: " + routine[day].pm;
-        cell.appendChild(dayName);
-        cell.appendChild(am);
-        cell.appendChild(pm);
-        calendar.appendChild(cell);
-    }
-}
-
-// Drawer toggle
-document.querySelector(".drawer-header").addEventListener("click", () => {
-    document.querySelector(".drawer-content").classList.toggle("open");
-});
-</script>
-
-</body>
-</html>
+    const drawerHeader = document.querySelector(".drawer-header");
+    const drawerContent = document.querySelector(".
 
 
 
