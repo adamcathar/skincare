@@ -3,167 +3,182 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>7‑Day Skincare Routine</title>
+<title>Monthly Skincare Calendar</title>
 <style>
-    body {
-        font-family: 'Segoe UI', Tahoma, sans-serif;
-        background-color: #f4f4f4;
-        color: #222;
-        margin: 0;
-        padding: 0;
-        line-height: 1.6;
-    }
-    header {
-        background-color: #1f1f1f;
-        color: #fff;
-        padding: 20px;
-        text-align: center;
-    }
+    body { font-family: 'Segoe UI', sans-serif; background: #f4f4f4; margin: 0; }
+    header { background: #1f1f1f; color: #fff; text-align: center; padding: 20px; }
     h1 { margin: 0; }
-    main { max-width: 900px; margin: auto; padding: 20px; }
-    section {
+    main { max-width: 1100px; margin: auto; padding: 20px; }
+
+    /* Drawer style */
+    .drawer {
         background: #fff;
-        margin-bottom: 20px;
         border-radius: 6px;
-        padding: 20px;
         box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        overflow: hidden;
+        margin-bottom: 20px;
     }
-    h2 {
-        color: #444;
-        border-bottom: 2px solid #e2e2e2;
-        padding-bottom: 5px;
+    .drawer-header {
+        background: #333;
+        color: #fff;
+        padding: 15px;
+        cursor: pointer;
+        font-weight: bold;
     }
-    h3 {
-        color: #555;
-        margin-top: 20px;
+    .drawer-content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease;
+        padding: 0 15px;
     }
-    ul { padding-left: 20px; }
-    .day {
-        background: #fafafa;
+    .drawer-content.open {
+        padding: 15px;
+        max-height: 2000px; /* large to accommodate content */
+    }
+
+    /* Calendar */
+    .calendar {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        gap: 10px;
+    }
+    .day-cell {
+        background: #fff;
         border: 1px solid #ddd;
-        margin: 10px 0;
-        padding: 10px;
         border-radius: 4px;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
     }
-    .am { color: #0b5394; }
-    .pm { color: #741b47; }
-    footer {
+    .day-name {
+        font-weight: bold;
+        margin-bottom: 5px;
+        background: #eee;
+        padding: 4px;
         text-align: center;
-        font-size: 0.9em;
-        color: #666;
-        padding: 20px;
+        border-radius: 3px;
     }
+    .am { color: #0b5394; font-size: 0.85em; margin-bottom: 4px; }
+    .pm { color: #741b47; font-size: 0.85em; }
 </style>
 </head>
 <body>
 
 <header>
-    <h1>7‑Day Skincare Routine</h1>
-    <p>Detailed, step‑by‑step grooming plan for healthy, clean, and low‑shine skin</p>
+    <h1>Monthly Skincare Routine</h1>
+    <p>Manly, clean, and low‑shine — mapped for the whole month</p>
 </header>
 
 <main>
 
+<!-- Drawer for product info -->
+<div class="drawer">
+    <div class="drawer-header">Product Information</div>
+    <div class="drawer-content">
+        <h3>Toner — Witch Hazel + Tea Tree + Willow Bark</h3>
+        <p>Balances skin, controls oil, preps for serums. Mist 3–4 sprays from 6–8 inches away; air‑dry 30–60s.</p>
+        <h3>Vitamin B, C, E & Niacinamide Serum</h3>
+        <p>Brightens, strengthens, controls oil. Use 3–4 drops AM, pat in, avoid eyelids.</p>
+        <h3>Hyaluronic Acid (HA) Serum</h3>
+        <p>Pure hydration without heaviness. 3–4 drops, pat in.</p>
+        <h3>HA + Rice Ferment Night Booster</h3>
+        <p>Hydrates and brightens. PM only, 3–4 drops.</p>
+        <h3>Niacinamide 5% + Squalane Serum</h3>
+        <p>Oil control + light hydration. PM on assigned nights, 3 drops.</p>
+        <h3>Collagen Liquid Serum</h3>
+        <p>Supports firmness. PM on assigned nights, 3–4 drops.</p>
+        <h3>Retinol Serum</h3>
+        <p>Cell turnover, anti‑ageing. PM only, twice per week, 2–3 drops. Avoid eyes. Wait 2 min before next step. No masks/Vitamin C same night.</p>
+        <h3>Collagen Cream</h3>
+        <p>Light moisture & firmness. Half‑pea AM daily; PM on retinol nights. Apply perimeter of face.</p>
+        <h3>Vitamin C Cream</h3>
+        <p>Brightens, evens tone. PM only, not with retinol.</p>
+        <h3>Night Mask — Peptides + Ceramides</h3>
+        <p>Overnight hydration, barrier support. Thin layer on assigned nights; avoid T‑zone if oily.</p>
+        <h3>Lavender Melatonin Eye Cream</h3>
+        <p>Soothes under‑eyes. Rice‑grain per eye nightly; dab gently.</p>
+        <h3>Masks</h3>
+        <ul>
+            <li><strong>Hydrating Clay:</strong> 10–15 min</li>
+            <li><strong>Peel‑Off Charcoal:</strong> 20 min</li>
+            <li><strong>Kaolin/Bentonite/Charcoal:</strong> 10 min max</li>
+            <li><strong>Gold Peel‑Off:</strong> 20 min</li>
+        </ul>
+    </div>
+</div>
+
+<!-- Monthly calendar -->
 <section>
-    <h2>How to Cleanse</h2>
-    <ul>
-        <li>Wet face with lukewarm water.</li>
-        <li>Use a nickel‑sized amount of gentle cleanser.</li>
-        <li>Massage in small circles for 30–45 seconds.</li>
-        <li>Rinse thoroughly, pat dry — no rubbing.</li>
-    </ul>
-</section>
-
-<section>
-    <h2>Product Guide</h2>
-    <h3>Toner — Witch Hazel + Tea Tree + Willow Bark</h3>
-    <p>Balances skin, controls oil, preps for serums. Mist 3–4 sprays from 6–8 inches away; air‑dry 30–60s.</p>
-
-    <h3>Vitamin B, C, E & Niacinamide Serum</h3>
-    <p>Brightens, strengthens, controls oil. Use 3–4 drops AM, pat in, avoid eyelids.</p>
-
-    <h3>Hyaluronic Acid (HA) Serum</h3>
-    <p>Pure hydration without heaviness. 3–4 drops, pat in.</p>
-
-    <h3>HA + Rice Ferment Night Booster</h3>
-    <p>Hydrates and brightens. PM only, 3–4 drops.</p>
-
-    <h3>Niacinamide 5% + Squalane Serum</h3>
-    <p>Oil control + light hydration. PM on assigned nights, 3 drops.</p>
-
-    <h3>Collagen Liquid Serum</h3>
-    <p>Supports firmness. PM on assigned nights, 3–4 drops.</p>
-
-    <h3>Retinol Serum</h3>
-    <p>Cell turnover, anti‑ageing. PM only, twice per week, 2–3 drops. Avoid eyes. Wait 2 min before next step. No masks/Vitamin C same night.</p>
-
-    <h3>Collagen Cream</h3>
-    <p>Light moisture & firmness. Half‑pea AM daily; PM on retinol nights. Apply perimeter of face.</p>
-
-    <h3>Vitamin C Cream</h3>
-    <p>Brightens, evens tone. PM only, not with retinol.</p>
-
-    <h3>Night Mask — Peptides + Ceramides</h3>
-    <p>Overnight hydration, barrier support. Thin layer on assigned nights; avoid T‑zone if oily.</p>
-
-    <h3>Lavender Melatonin Eye Cream</h3>
-    <p>Soothes under‑eyes. Rice‑grain per eye nightly; dab gently.</p>
-
-    <h3>Masks</h3>
-    <ul>
-        <li><strong>Hydrating Clay:</strong> 10–15 min</li>
-        <li><strong>Peel‑Off Charcoal:</strong> 20 min</li>
-        <li><strong>Kaolin/Bentonite/Charcoal:</strong> 10 min max</li>
-        <li><strong>Gold Peel‑Off:</strong> 20 min</li>
-    </ul>
-</section>
-
-<section>
-    <h2>7‑Day Schedule</h2>
-
-    <div class="day"><strong>Day 1</strong>
-        <p class="am">AM: Cleanse → Toner → Vitamin B/C/E + Niacinamide → HA Serum → Collagen Cream → Sunscreen</p>
-        <p class="pm">PM: Cleanse → Hydrating Clay Mask → HA + Rice Booster → Niacinamide + Squalane → Eye Cream → Night Mask (skip T‑zone)</p>
-    </div>
-
-    <div class="day"><strong>Day 2</strong>
-        <p class="am">Same as Day 1 AM</p>
-        <p class="pm">PM: Cleanse → Retinol Serum → HA Serum → Collagen Cream (perimeter only) → Eye Cream</p>
-    </div>
-
-    <div class="day"><strong>Day 3</strong>
-        <p class="am">Same as Day 1 AM</p>
-        <p class="pm">PM: Cleanse → Peel‑Off Charcoal Mask → HA + Rice Booster → Collagen Serum → Eye Cream → Night Mask (cheeks only)</p>
-    </div>
-
-    <div class="day"><strong>Day 4</strong>
-        <p class="am">Same as Day 1 AM</p>
-        <p class="pm">PM: Cleanse → Niacinamide + Squalane → Collagen Serum → Vitamin C Cream (cheeks only) → Eye Cream</p>
-    </div>
-
-    <div class="day"><strong>Day 5</strong>
-        <p class="am">Same as Day 1 AM</p>
-        <p class="pm">PM: Cleanse → Kaolin/Bentonite/Charcoal Mask → HA + Rice Booster → Collagen Serum → Eye Cream → Night Mask (perimeter only)</p>
-    </div>
-
-    <div class="day"><strong>Day 6</strong>
-        <p class="am">Same as Day 1 AM</p>
-        <p class="pm">PM: Cleanse → Retinol Serum → HA Serum → Collagen Cream (perimeter only) → Eye Cream</p>
-    </div>
-
-    <div class="day"><strong>Day 7</strong>
-        <p class="am">Same as Day 1 AM</p>
-        <p class="pm">PM: Cleanse → Gold Peel‑Off Mask → HA + Rice Booster → Collagen Serum → Eye Cream → Night Mask (cheeks only)</p>
-    </div>
-
+    <h2>This Month’s Schedule</h2>
+    <div class="calendar" id="calendar"></div>
 </section>
 
 </main>
 
-<footer>
-    Routine designed for a clean, healthy, low‑shine look — consistent use = visible results.
-</footer>
+<script>
+const routine = [
+    {
+        am: "Cleanse → Toner → Vit B/C/E + Niacinamide → HA Serum → Collagen Cream → Sunscreen",
+        pm: "Cleanse → Hydrating Clay Mask → HA+Rice Booster → Niacinamide+Squalane → Eye Cream → Night Mask (skip T‑zone)"
+    },
+    {
+        am: "Same as Day 1 AM",
+        pm: "Cleanse → Retinol → HA Serum → Collagen Cream (perimeter) → Eye Cream"
+    },
+    {
+        am: "Same as Day 1 AM",
+        pm: "Cleanse → Peel‑Off Charcoal → HA+Rice Booster → Collagen Serum → Eye Cream → Night Mask (cheeks)"
+    },
+    {
+        am: "Same as Day 1 AM",
+        pm: "Cleanse → Niacinamide+Squalane → Collagen Serum → Vitamin C Cream (cheeks) → Eye Cream"
+    },
+    {
+        am: "Same as Day 1 AM",
+        pm: "Cleanse → Kaolin/Bentonite/Charcoal Mask → HA+Rice Booster → Collagen Serum → Eye Cream → Night Mask (perimeter)"
+    },
+    {
+        am: "Same as Day 1 AM",
+        pm: "Cleanse → Retinol → HA Serum → Collagen Cream (perimeter) → Eye Cream"
+    },
+    {
+        am: "Same as Day 1 AM",
+        pm: "Cleanse → Gold Peel‑Off → HA+Rice Booster → Collagen Serum → Eye Cream → Night Mask (cheeks)"
+    }
+];
+
+// Generate a 4-week (28-day) grid
+const daysOfWeek = ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
+const calendar = document.getElementById("calendar");
+
+for(let week=0; week<4; week++){
+    for(let day=0; day<7; day++){
+        const cell = document.createElement("div");
+        cell.classList.add("day-cell");
+        const dayName = document.createElement("div");
+        dayName.classList.add("day-name");
+        dayName.textContent = daysOfWeek[day] + " (Week " + (week+1) + ")";
+        const am = document.createElement("div");
+        am.classList.add("am");
+        am.textContent = "AM: " + routine[day].am;
+        const pm = document.createElement("div");
+        pm.classList.add("pm");
+        pm.textContent = "PM: " + routine[day].pm;
+        cell.appendChild(dayName);
+        cell.appendChild(am);
+        cell.appendChild(pm);
+        calendar.appendChild(cell);
+    }
+}
+
+// Drawer toggle
+document.querySelector(".drawer-header").addEventListener("click", () => {
+    document.querySelector(".drawer-content").classList.toggle("open");
+});
+</script>
 
 </body>
 </html>
+
+
 
