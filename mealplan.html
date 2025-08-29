@@ -1,409 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Weekly Meal Plan Tracker — Low-Activity, High-Protein, No Turkey/Seafood</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Weekly Skin‑Support Meal & Activity Tracker</title>
 <style>
-  :root{
-    --bg:#f6f7f9;
-    --card:#ffffff;
-    --ink:#1f2328;
-    --muted:#666c74;
-    --accent:#0b5394;
-    --accent-2:#741b47;
-    --line:#e6e8eb;
-    --ok:#2da44e;
-  }
-  html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;line-height:1.5;}
-  header{
-    background:linear-gradient(135deg,#1f1f1f,#3a3a3a);
-    color:#fff;padding:28px 20px;text-align:center;
-    box-shadow:0 2px 10px rgba(0,0,0,.25);
-  }
-  header h1{margin:0 0 6px 0;font-size:clamp(1.4rem,2.8vw,2rem);font-weight:700}
-  header p{margin:0;color:#cfd3d7}
-  main{max-width:1100px;margin:auto;padding:22px}
-  /* Controls */
-  .controls{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end;margin-bottom:16px}
-  .btn{
-    appearance:none;border:1px solid #2b2f36;background:#222;color:#fff;
-    padding:10px 14px;border-radius:6px;cursor:pointer;font-weight:600;
-    transition:transform .05s ease,opacity .2s ease,background .2s ease;
-  }
-  .btn.secondary{background:#fff;color:#222;border-color:var(--line)}
-  .btn:active{transform:scale(.98)}
-  .grid{
-    display:grid;gap:16px;
-    grid-template-columns:repeat( auto-fit, minmax(280px,1fr) );
-  }
-  .day{
-    background:var(--card);border:1px solid var(--line);border-radius:12px;
-    padding:16px;box-shadow:0 1px 6px rgba(0,0,0,.06);
-  }
-  .day h2{margin:0 0 10px 0;font-size:1.1rem;border-bottom:1px solid var(--line);padding-bottom:8px}
-  .meal{margin:10px 0;padding:10px;border:1px dashed var(--line);border-radius:8px;background:#fff}
-  .meal .label{font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.03em;font-size:.8rem;margin-bottom:6px}
-  .meal .text{margin:0}
-  .meal .note{margin:6px 0 0 0;color:var(--muted);font-size:.9rem}
-  .badge{display:inline-block;font-weight:700;font-size:.75rem;border:1px solid var(--line);border-radius:999px;padding:2px 8px;margin-left:6px;color:#59636e;background:#f3f4f6}
-  .am .label{color:var(--accent)}
-  .pm .label{color:var(--accent-2)}
-  /* Checklist */
-  .checkline{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:10px}
-  .checks{display:flex;flex-wrap:wrap;gap:8px}
-  input[type="checkbox"]{width:18px;height:18px;accent-color:var(--ok);cursor:pointer}
-  .water{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
-  .water span{font-size:.85rem;color:var(--muted)}
-  /* Drawer */
-  .drawer{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;margin:0 0 18px 0}
-  .drawer-header{
-    background:#2c2c2c;color:#fff;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;user-select:none
-  }
-  .drawer-header .title{font-weight:700}
-  .drawer-header .arrow{transition:transform .25s ease}
-  .drawer-header.open .arrow{transform:rotate(90deg)}
-  .drawer-content{
-    max-height:0;overflow:hidden;transition:max-height .35s ease,padding .35s ease;
-    padding:0 16px;background:#fff;
-  }
-  .drawer-content.open{max-height:2000px;padding:16px}
-  .drawer-content h3{margin:10px 0 6px 0}
-  .drawer-columns{display:grid;grid-template-columns:repeat( auto-fit, minmax(260px,1fr) );gap:14px}
-  .info{border:1px solid var(--line);border-radius:8px;padding:12px;background:#fcfcfd}
-  .info p{margin:.2rem 0 .6rem 0}
-  .muted{color:var(--muted)}
-  footer{max-width:1100px;margin:18px auto 40px auto;padding:0 22px;color:var(--muted);font-size:.92rem;text-align:center}
-  /* Print */
-  @media print{
-    .controls,.drawer-header{display:none}
-    body{background:#fff}
-    .day{break-inside:avoid}
+  body {font-family: 'Segoe UI', sans-serif; background:#f6f7f9; color:#222; margin:0; line-height:1.5;}
+  header {background:linear-gradient(135deg, #1f1f1f, #3a3a3a); color:#fff; text-align:center; padding:25px 15px;}
+  header h1 {margin:0; font-size:1.8rem;}
+  header p {margin:6px 0 0; color:#ccc;}
+  header a {color:#4fa3ff; text-decoration:none;}
+  main {max-width:1100px; margin:auto; padding:20px;}
+  table {border-collapse:collapse; width:100%; background:#fff; border-radius:8px; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,0.06);}
+  th, td {border:1px solid #ddd; padding:10px; vertical-align:top;}
+  th {background:#f0f0f0; font-weight:600; text-align:left;}
+  td p {margin:4px 0;}
+  .water, .move {text-align:center;}
+  .controls {margin:15px 0; text-align:right;}
+  button {background:#0b5394; color:#fff; border:none; padding:8px 14px; border-radius:4px; cursor:pointer;}
+  button:hover {background:#093e70;}
+  footer {max-width:1100px; margin:20px auto; text-align:center; font-size:0.9rem; color:#777;}
+  input[type="checkbox"] {width:18px; height:18px; cursor:pointer;}
+  @media print {
+    button, .controls {display:none;}
+    body {background:#fff;}
   }
 </style>
 </head>
 <body>
+
 <header>
-  <h1>Weekly Meal Plan Tracker</h1>
-  <p>Low-activity, high-protein, low-sodium. No turkey. No seafood.</p>
+  <h1>Weekly Skin‑Support Meal & Activity Tracker</h1>
+  <p>Low‑activity friendly, high protein, skin‑nourishing foods — <a href="https://adamcathar.github.io/skincare/" target="_blank">View Skincare Plan</a></p>
 </header>
 
 <main>
-  <!-- Drawer: Plan notes -->
-  <section class="drawer">
-    <div class="drawer-header" id="drawerToggle">
-      <div class="title">Plan notes & guidelines</div>
-      <div class="arrow">▶</div>
-    </div>
-    <div class="drawer-content" id="drawerContent">
-      <div class="drawer-columns">
-        <div class="info">
-          <h3>Targets</h3>
-          <p><strong>Calories:</strong> ~1,600–1,800/day</p>
-          <p><strong>Protein:</strong> 110–140 g/day</p>
-          <p><strong>Water:</strong> 2.5–3 L/day</p>
-          <p class="muted">Season with herbs, spices, lemon/vinegar. Skip added salt to keep sodium in check.</p>
-        </div>
-        <div class="info">
-          <h3>Meal building</h3>
-          <p><strong>Protein first:</strong> Eat protein before carbs to steady blood sugar.</p>
-          <p><strong>Slow-burn carbs:</strong> Sweet potato, quinoa, brown rice, couscous (measured cooked).</p>
-          <p><strong>Veg volume:</strong> 1–2 cups non-starchy veg at lunch/dinner.</p>
-        </div>
-        <div class="info">
-          <h3>Swap options</h3>
-          <p>Chicken ↔ pork tenderloin ↔ lean beef (90%+). Dairy and eggs for snacks.</p>
-          <p>Plant protein: beans/lentils/cottage cheese/Greek yogurt as needed.</p>
-          <p class="muted">This plan excludes turkey and seafood by design.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+<div class="controls">
+  <button id="reset">Reset All</button>
+  <button onclick="window.print()">Print</button>
+</div>
 
-  <div class="controls">
-    <button class="btn secondary" id="resetAll">Reset week</button>
-    <button class="btn" onclick="window.print()">Print</button>
-  </div>
-
-  <section class="grid">
-    <!-- MONDAY -->
-    <article class="day" data-day="mon">
-      <h2>Monday <span class="badge">Steady start</span></h2>
-      <div class="meal am">
-        <div class="label">Breakfast</div>
-        <p class="text">1 cup Greek yogurt + 1 scoop protein + ½ cup blueberries + 1 tbsp flax</p>
-        <div class="checkline"><span class="muted">Complete</span><input type="checkbox" id="mon-b" /></div>
-      </div>
-      <div class="meal">
-        <div class="label">AM Snack</div>
-        <p class="text">1 boiled egg + small banana</p>
-        <div class="checkline"><span class="muted">Complete</span><input type="checkbox" id="mon-am" /></div>
-      </div>
-      <div class="meal">
-        <div class="label">Lunch</div>
-        <p class="text">4 oz grilled chicken breast + 1 cup broccoli + ½ cup quinoa + 1 tsp olive oil</p>
-        <div class="checkline"><span class="muted">Complete</span><input type="checkbox" id="mon-l" /></div>
-      </div>
-      <div class="meal">
-        <div class="label">PM Snack</div>
-        <p class="text">¾ cup cottage cheese + ¼ cup sliced cucumber</p>
-        <div class="checkline"><span class="muted">Complete</span><input type="checkbox" id="mon-pm" /></div>
-      </div>
-      <div class="meal pm">
-        <div class="label">Dinner</div>
-        <p class="text">4 oz lean pork tenderloin + 1 cup green beans + ½ baked sweet potato</p>
-        <div class="checkline"><span class="muted">Complete</span><input type="checkbox" id="mon-d" /></div>
-      </div>
-      <div class="water"><span>Water:</span>
-        <input type="checkbox" id="mon-w1"><input type="checkbox" id="mon-w2"><input type="checkbox" id="mon-w3"><input type="checkbox" id="mon-w4">
-        <input type="checkbox" id="mon-w5"><input type="checkbox" id="mon-w6"><input type="checkbox" id="mon-w7"><input type="checkbox" id="mon-w8">
-      </div>
-    </article>
-
-    <!-- TUESDAY -->
-    <article class="day" data-day="tue">
-      <h2>Tuesday <span class="badge">Balanced</span></h2>
-      <div class="meal am">
-        <div class="label">Breakfast</div>
-        <p class="text">2 scrambled eggs + 1 slice whole‑grain toast + ½ cup strawberries</p>
-        <div class="checkline"><span class="muted">Complete</span><input type="checkbox" id="tue-b" /></div>
-      </div>
-      <div class="meal">
-        <div class="label">AM Snack</div>
-        <p class="text">10 almonds + 1 small apple</p>
-        <div class="checkline"><span class="muted">Complete</span><input type="checkbox" id="tue-am" /></div>
-      </div>
-      <div class="meal">
-        <div class="label">Lunch</div>
-        <p class="text">4 oz chicken breast + large salad (spinach, peppers, tomato) + 1 tsp olive oil/lemon</p>
-        <div class="checkline"><span class="muted">Complete</span><input type="checkbox" id="tue-l" /></div>
-      </div>
-      <div class="meal">
-        <div class="label">PM Snack</div>
-        <p class="text">1 cheese stick + 1 cup baby carrots</p>
-        <div class="checkline"><span class="muted">Complete</span><input type="checkbox" id="tue-pm" /></div>
-      </div>
-      <div class="meal pm">
-        <div class="label">Dinner</div>
-        <p class="text">4 oz 90% lean beef patty + 1 cup roasted zucchini + ½ cup brown rice</p>
-        <div class="checkline"><span class="muted">Complete</span><input type="checkbox" id="tue-d" /></div>
-      </div>
-      <div class="water"><span>Water:</span>
-        <input type="checkbox" id="tue-w1"><input type="checkbox" id="tue-w2"><input type="checkbox" id="tue-w3"><input type="checkbox" id="tue-w4">
-        <input type="checkbox" id="tue-w5"><input type="checkbox" id="tue-w6"><input type="checkbox" id="tue-w7"><input type="checkbox" id="tue-w8">
-      </div>
-    </article>
-
-    <!-- WEDNESDAY -->
-    <article class="day" data-day="wed">
-      <h2>Wednesday <span class="badge">Protein push</span></h2>
-      <div class="meal am">
-        <div class="label">Breakfast</div>
-        <p class="text">Smoothie: 1 cup unsweetened almond milk + 1 scoop protein + ½ banana + 1 tbsp peanut butter</p>
-        <div class="checkline"><span class="muted">Complete</span><input type="checkbox" id="wed-b" /></div>
-      </div>
-      <div class="meal">
-        <div class="label">AM Snack</div>
-        <p class="text">1 boiled egg + 1 clementine</p>
-        <div class="checkline"><span class="muted">Complete</span><input type="checkbox" id="wed-am" /></div>
-      </div>
-      <div class="meal">
-        <div class="label">Lunch</div>
-        <p class="text">4 oz grilled chicken thigh + 1 cup steamed cauliflower + ½ cup couscous</p>
-        <div class="checkline"><span class="muted">Complete</span><input type="checkbox" id="wed-l" /></div>
-      </div>
-      <div class="meal">
-        <div class="label">PM Snack</div>
-        <p class="text">¾ cup cottage cheese + ¼ cup pineapple</p>
-        <div class="checkline"><span class="muted">Complete</span><input type="checkbox" id="wed-pm" /></div>
-      </div>
-      <div class="meal pm">
-        <div class="label">Dinner</div>
-        <p class="text">4 oz beef meatballs (lean) + 1 cup roasted carrots + ½ cup quinoa</p>
-        <div class="checkline"><span class="muted">Complete</span><input type="checkbox" id="wed-d" /></div>
-      </div>
-      <div class="water"><span>Water:</span>
-        <input type="checkbox" id="wed-w1"><input type="checkbox" id="wed-w2"><input type="checkbox" id="wed-w3"><input type="checkbox" id="wed-w4">
-        <input type="checkbox" id="wed-w5"><input type="checkbox" id="wed-w6"><input type="checkbox" id="wed-w7"><input type="checkbox" id="wed-w8">
-      </div>
-    </article>
-
-    <!-- THURSDAY -->
-    <article class="day" data-day="thu">
-      <h2>Thursday <span class="badge">Simple & clean</span></h2>
-      <div class="meal am">
-        <div class="label">Breakfast</div>
-        <p class="text">1 cup Greek yogurt + ½ cup raspberries + 2 tbsp walnuts</p>
-        <div class="checkline"><span class="muted">Complete</span><input type="checkbox" id="thu-b" /></div>
-      </div>
-      <div class="meal">
-        <div class="label">AM Snack</div>
-        <p class="text">1 cheese stick + 1 pear</p>
-        <div class="checkline"><span class="muted">Complete</span><input type="checkbox" id="thu-am" /></div>
-      </div>
-      <div class="meal">
-        <div class="label">Lunch</div>
-        <p class="text">4 oz grilled chicken breast + 1 cup broccoli/cauliflower mix + ½ cup brown rice</p>
-        <div class="checkline"><span class="muted">Complete</span><input type="checkbox" id="thu-l" /></div>
-      </div>
-      <div class="meal">
-        <div class="label">PM Snack</div>
-        <p class="text">1 boiled egg + cucumber slices</p>
-        <div class="checkline"><span class="muted">Complete</span><input type="checkbox" id="thu-pm" /></div>
-      </div>
-      <div class="meal pm">
-        <div class="label">Dinner</div>
-        <p class="text">4 oz lean pork chop + 1 cup steamed green beans + ½ baked sweet potato</p>
-        <div class="checkline"><span class="muted">Complete</span><input type="checkbox" id="thu-d" /></div>
-      </div>
-      <div class="water"><span>Water:</span>
-        <input type="checkbox" id="thu-w1"><input type="checkbox" id="thu-w2"><input type="checkbox" id="thu-w3"><input type="checkbox" id="thu-w4">
-        <input type="checkbox" id="thu-w5"><input type="checkbox" id="thu-w6"><input type="checkbox" id="thu-w7"><input type="checkbox" id="thu-w8">
-      </div>
-    </article>
-
-    <!-- FRIDAY -->
-    <article class="day" data-day="fri">
-      <h2>Friday <span class="badge">High satiety</span></h2>
-      <div class="meal am">
-        <div class="label">Breakfast</div>
-        <p class="text">2 boiled eggs + 1 slice whole‑grain toast + ½ avocado</p>
-        <div class="checkline"><span class="muted">Complete</span><input type="checkbox" id="fri-b" /></div>
-      </div>
-      <div class="meal">
-        <div class="label">AM Snack</div>
-        <p class="text">10 almonds + 1 small apple</p>
-        <div class="checkline"><span class="muted">Complete</span><input type="checkbox" id="fri-am" /></div>
-      </div>
-      <div class="meal">
-        <div class="label">Lunch</div>
-        <p class="text">4 oz lean pork loin + spinach salad + 1 tsp olive oil + balsamic</p>
-        <div class="checkline"><span class="muted">Complete</span><input type="checkbox" id="fri-l" /></div>
-      </div>
-      <div class="meal">
-        <div class="label">PM Snack</div>
-        <p class="text">¾ cup cottage cheese + ¼ cup blueberries</p>
-        <div class="checkline"><span class="muted">Complete</span><input type="checkbox" id="fri-pm" /></div>
-      </div>
-      <div class="meal pm">
-        <div class="label">Dinner</div>
-        <p class="text">4 oz grilled chicken breast + 1 cup roasted zucchini + ½ cup quinoa</p>
-        <div class="checkline"><span class="muted">Complete</span><input type="checkbox" id="fri-d" /></div>
-      </div>
-      <div class="water"><span>Water:</span>
-        <input type="checkbox" id="fri-w1"><input type="checkbox" id="fri-w2"><input type="checkbox" id="fri-w3"><input type="checkbox" id="fri-w4">
-        <input type="checkbox" id="fri-w5"><input type="checkbox" id="fri-w6"><input type="checkbox" id="fri-w7"><input type="checkbox" id="fri-w8">
-      </div>
-    </article>
-
-    <!-- SATURDAY -->
-    <article class="day" data-day="sat">
-      <h2>Saturday <span class="badge">Easy prep</span></h2>
-      <div class="meal am">
-        <div class="label">Breakfast</div>
-        <p class="text">1 cup Greek yogurt + 1 scoop protein + 1 tbsp chia + ½ cup strawberries</p>
-        <div class="checkline"><span class="muted">Complete</span><input type="checkbox" id="sat-b" /></div>
-      </div>
-      <div class="meal">
-        <div class="label">AM Snack</div>
-        <p class="text">1 boiled egg + 1 clementine</p>
-        <div class="checkline"><span class="muted">Complete</span><input type="checkbox" id="sat-am" /></div>
-      </div>
-      <div class="meal">
-        <div class="label">Lunch</div>
-        <p class="text">4 oz lean ground beef + 1 cup mixed steamed veg + ½ cup couscous</p>
-        <div class="checkline"><span class="muted">Complete</span><input type="checkbox" id="sat-l" /></div>
-      </div>
-      <div class="meal">
-        <div class="label">PM Snack</div>
-        <p class="text">10 almonds + 1 small banana</p>
-        <div class="checkline"><span class="muted">Complete</span><input type="checkbox" id="sat-pm" /></div>
-      </div>
-      <div class="meal pm">
-        <div class="label">Dinner</div>
-        <p class="text">4 oz chicken thigh + 1 cup roasted carrots + ½ baked sweet potato</p>
-        <div class="checkline"><span class="muted">Complete</span><input type="checkbox" id="sat-d" /></div>
-      </div>
-      <div class="water"><span>Water:</span>
-        <input type="checkbox" id="sat-w1"><input type="checkbox" id="sat-w2"><input type="checkbox" id="sat-w3"><input type="checkbox" id="sat-w4">
-        <input type="checkbox" id="sat-w5"><input type="checkbox" id="sat-w6"><input type="checkbox" id="sat-w7"><input type="checkbox" id="sat-w8">
-      </div>
-    </article>
-
-    <!-- SUNDAY -->
-    <article class="day" data-day="sun">
-      <h2>Sunday <span class="badge">Reset & recharge</span></h2>
-      <div class="meal am">
-        <div class="label">Breakfast</div>
-        <p class="text">Smoothie: 1 cup unsweetened almond milk + 1 scoop protein + ½ cup berries + 1 tbsp flax</p>
-        <div class="checkline"><span class="muted">Complete</span><input type="checkbox" id="sun-b" /></div>
-      </div>
-      <div class="meal">
-        <div class="label">AM Snack</div>
-        <p class="text">1 cheese stick + 1 pear</p>
-        <div class="checkline"><span class="muted">Complete</span><input type="checkbox" id="sun-am" /></div>
-      </div>
-      <div class="meal">
-        <div class="label">Lunch</div>
-        <p class="text">4 oz chicken breast + large green salad + 1 tsp olive oil/lemon</p>
-        <div class="checkline"><span class="muted">Complete</span><input type="checkbox" id="sun-l" /></div>
-      </div>
-      <div class="meal">
-        <div class="label">PM Snack</div>
-        <p class="text">1 boiled egg + cucumber slices</p>
-        <div class="checkline"><span class="muted">Complete</span><input type="checkbox" id="sun-pm" /></div>
-      </div>
-      <div class="meal pm">
-        <div class="label">Dinner</div>
-        <p class="text">4 oz lean pork tenderloin + 1 cup broccoli + ½ cup brown rice</p>
-        <div class="checkline"><span class="muted">Complete</span><input type="checkbox" id="sun-d" /></div>
-      </div>
-      <div class="water"><span>Water:</span>
-        <input type="checkbox" id="sun-w1"><input type="checkbox" id="sun-w2"><input type="checkbox" id="sun-w3"><input type="checkbox" id="sun-w4">
-        <input type="checkbox" id="sun-w5"><input type="checkbox" id="sun-w6"><input type="checkbox" id="sun-w7"><input type="checkbox" id="sun-w8">
-      </div>
-    </article>
-  </section>
+<table>
+  <thead>
+    <tr>
+      <th>Day</th>
+      <th>Breakfast</th>
+      <th>AM Snack</th>
+      <th>Lunch</th>
+      <th>PM Snack</th>
+      <th>Dinner</th>
+      <th>Water ✓</th>
+      <th>Skin‑Support Move</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Mon</td>
+      <td>Greek yogurt + protein + kiwi + flax</td>
+      <td>1 boiled egg + ½ orange</td>
+      <td>Chicken breast + spinach + bell peppers + quinoa</td>
+      <td>Cottage cheese + cucumber</td>
+      <td>Pork tenderloin + steamed broccoli + sweet potato</td>
+      <td class="water"><input type="checkbox" id="mon-water"></td>
+      <td class="move">Seated torso twists × 10/side <input type="checkbox" id="mon-move"></td>
+    </tr>
+    <tr>
+      <td>Tue</td>
+      <td>2 eggs + whole‑grain toast + ½ avocado</td>
+      <td>10 almonds + strawberries</td>
+      <td>Chicken breast + salad + olive oil/lemon</td>
+      <td>Cheese stick + carrot sticks</td>
+      <td>Lean beef patty + zucchini + brown rice</td>
+      <td class="water"><input type="checkbox" id="tue-water"></td>
+      <td class="move">Ankle circles × 15/leg <input type="checkbox" id="tue-move"></td>
+    </tr>
+    <tr>
+      <td>Wed</td>
+      <td>Smoothie: almond milk + protein + blueberries + chia</td>
+      <td>Egg + clementine</td>
+      <td>Chicken thigh + cauliflower + couscous</td>
+      <td>Cottage cheese + pineapple</td>
+      <td>Beef meatballs + roasted carrots + quinoa</td>
+      <td class="water"><input type="checkbox" id="wed-water"></td>
+      <td class="move">Seated knee extensions × 12/leg <input type="checkbox" id="wed-move"></td>
+    </tr>
+    <tr>
+      <td>Thu</td>
+      <td>Greek yogurt + raspberries + walnuts</td>
+      <td>Cheese stick + pear</td>
+      <td>Chicken breast + broccoli/cauli + brown rice</td>
+      <td>Boiled egg + cucumber</td>
+      <td>Pork chop + green beans + sweet potato</td>
+      <td class="water"><input type="checkbox" id="thu-water"></td>
+      <td class="move">Shoulder rolls × 12 each way <input type="checkbox" id="thu-move"></td>
+    </tr>
+    <tr>
+      <td>Fri</td>
+      <td>2 boiled eggs + whole‑grain toast + tomato slices</td>
+      <td>Almonds + apple</td>
+      <td>Pork loin + spinach salad + balsamic</td>
+      <td>Cottage cheese + blueberries</td>
+      <td>Chicken breast + roasted zucchini + quinoa</td>
+      <td class="water"><input type="checkbox" id="fri-water"></td>
+      <td class="move">Neck tilts × 8/side <input type="checkbox" id="fri-move"></td>
+    </tr>
+    <tr>
+      <td>Sat</td>
+      <td>Greek yogurt + protein + strawberries + chia</td>
+      <td>Egg + clementine</td>
+      <td>Lean ground beef + mixed veg + couscous</td>
+      <td>Almonds + banana</td>
+      <td>Chicken thigh + roasted carrots + sweet potato</td>
+      <td class="water"><input type="checkbox" id="sat-water"></td>
+      <td class="move">Seated marching × 20 <input type="checkbox" id="sat-move"></td>
+    </tr>
+    <tr>
+      <td>Sun</td>
+      <td>Smoothie: almond milk + protein + kiwi + flax</td>
+      <td>Cheese stick + pear</td>
+      <td>Chicken breast + green salad + olive oil/lemon</td>
+      <td>Boiled egg + cucumber</td>
+      <td>Pork tenderloin + broccoli + brown rice</td>
+      <td class="water"><input type="checkbox" id="sun-water"></td>
+      <td class="move">Wrist stretches × 15s/side <input type="checkbox" id="sun-move"></td>
+    </tr>
+  </tbody>
+</table>
 </main>
 
 <footer>
-  Tip: Batch-cook proteins and carbs on Sunday. Keep cut veggies ready. Season with herbs/citrus, not salt. You’ve got this.
+  &copy; 2025 — Balanced nutrition & movement for sustainable fat loss and healthy skin.
 </footer>
 
 <script>
-  // Drawer toggle
-  const drawerToggle = document.getElementById('drawerToggle');
-  const drawerContent = document.getElementById('drawerContent');
-  drawerToggle.addEventListener('click', () => {
-    drawerToggle.classList.toggle('open');
-    drawerContent.classList.toggle('open');
+  // Persist checkbox state
+  const boxes = document.querySelectorAll('input[type="checkbox"]');
+  boxes.forEach(box => {
+    const key = 'tracker-' + box.id;
+    // restore
+    if(localStorage.getItem(key) === 'true'){ box.checked = true; }
+    // save
+    box.addEventListener('change', () => {
+      localStorage.setItem(key, box.checked);
+    });
   });
-
-  // Persist checkboxes to localStorage
-  const allChecks = Array.from(document.querySelectorAll('input[type="checkbox"]'));
-  const KEY_PREFIX = 'mealtrack:';
-
-  // Restore on load
-  allChecks.forEach(cb => {
-    const saved = localStorage.getItem(KEY_PREFIX + cb.id);
-    if (saved === '1') cb.checked = true;
-  });
-
-  // Save on change
-  document.addEventListener('change', (e) => {
-    if (e.target.matches('input[type="checkbox"]') && e.target.id) {
-      localStorage.setItem(KEY_PREFIX + e.target.id, e.target.checked ? '1' : '0');
-    }
-  });
-
   // Reset button
-  document.getElementById('resetAll').addEventListener('click', () => {
-    if (!confirm('Clear all checkboxes for the week?')) return;
-    allChecks.forEach(cb => {
-      cb.checked = false;
-      localStorage.removeItem(KEY_PREFIX + cb.id);
+  document.getElementById('reset').addEventListener('click', () => {
+    if(!confirm('Clear all checkboxes?')) return;
+    boxes.forEach(box => {
+      box.checked = false;
+      localStorage.removeItem('tracker-' + box.id);
     });
   });
 </script>
+
 </body>
 </html>
+
