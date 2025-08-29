@@ -11,19 +11,27 @@
   header p {margin:6px 0 0; color:#ccc;}
   header a {color:#4fa3ff; text-decoration:none;}
   main {max-width:1100px; margin:auto; padding:20px;}
-  table {border-collapse:collapse; width:100%; background:#fff; border-radius:8px; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,0.06);}
+  .drawer {background:#fff; border:1px solid #ddd; border-radius:8px; overflow:hidden; margin-bottom:18px;}
+  .drawer-header {background:#2c2c2c; color:#fff; padding:14px 16px; cursor:pointer; display:flex; justify-content:space-between; align-items:center;}
+  .drawer-header .arrow {transition:transform .25s ease;}
+  .drawer-header.open .arrow {transform:rotate(90deg);}
+  .drawer-content {max-height:0; overflow:hidden; transition:max-height .35s ease, padding .35s ease; padding:0 16px;}
+  .drawer-content.open {max-height:2000px; padding:16px;}
+  .drawer-columns {display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:14px;}
+  .info {background:#fafafa; border:1px solid #eee; border-radius:6px; padding:12px;}
+  .info h3 {margin-top:0;}
+  table {border-collapse:collapse; width:100%; background:#fff; border-radius:8px; overflow:hidden;}
   th, td {border:1px solid #ddd; padding:10px; vertical-align:top;}
-  th {background:#f0f0f0; font-weight:600; text-align:left;}
-  td p {margin:4px 0;}
+  th {background:#f0f0f0; font-weight:600;}
   .water, .move {text-align:center;}
   .controls {margin:15px 0; text-align:right;}
   button {background:#0b5394; color:#fff; border:none; padding:8px 14px; border-radius:4px; cursor:pointer;}
   button:hover {background:#093e70;}
-  footer {max-width:1100px; margin:20px auto; text-align:center; font-size:0.9rem; color:#777;}
   input[type="checkbox"] {width:18px; height:18px; cursor:pointer;}
   @media print {
-    button, .controls {display:none;}
+    button, .controls, .drawer-header {display:none;}
     body {background:#fff;}
+    .drawer-content {max-height:none; padding:0;}
   }
 </style>
 </head>
@@ -35,118 +43,154 @@
 </header>
 
 <main>
+
+<section class="drawer">
+  <div class="drawer-header" id="drawerToggle">
+    <div>Plan Notes & Guidelines</div>
+    <div class="arrow">▶</div>
+  </div>
+  <div class="drawer-content" id="drawerContent">
+    <div class="drawer-columns">
+      <div class="info">
+        <h3>Goals</h3>
+        <p><strong>Calories:</strong> ~1,650–1,800/day</p>
+        <p><strong>Protein:</strong> 110–140 g/day</p>
+        <p><strong>Water:</strong> 2.5–3 L/day</p>
+      </div>
+      <div class="info">
+        <h3>Skin Support</h3>
+        <p>Vitamin C foods (berries, kiwi, peppers) for collagen synthesis.</p>
+        <p>Healthy fats (avocado, nuts) for skin barrier health.</p>
+        <p>Zinc/copper (meat, nuts, seeds) aid elasticity.</p>
+      </div>
+      <div class="info">
+        <h3>Activity</h3>
+        <p>Daily moves boost circulation & deliver nutrients to skin.</p>
+        <p>1–2 min movement breaks each hour.</p>
+        <p>See “Move” column for what to do.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <div class="controls">
   <button id="reset">Reset All</button>
   <button onclick="window.print()">Print</button>
 </div>
-
 <table>
-  <thead>
-    <tr>
-      <th>Day</th>
-      <th>Breakfast</th>
-      <th>AM Snack</th>
-      <th>Lunch</th>
-      <th>PM Snack</th>
-      <th>Dinner</th>
-      <th>Water ✓</th>
-      <th>Skin‑Support Move</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Mon</td>
-      <td>Greek yogurt + protein + kiwi + flax</td>
-      <td>1 boiled egg + ½ orange</td>
-      <td>Chicken breast + spinach + bell peppers + quinoa</td>
-      <td>Cottage cheese + cucumber</td>
-      <td>Pork tenderloin + steamed broccoli + sweet potato</td>
-      <td class="water"><input type="checkbox" id="mon-water"></td>
-      <td class="move">Seated torso twists × 10/side <input type="checkbox" id="mon-move"></td>
-    </tr>
-    <tr>
-      <td>Tue</td>
-      <td>2 eggs + whole‑grain toast + ½ avocado</td>
-      <td>10 almonds + strawberries</td>
-      <td>Chicken breast + salad + olive oil/lemon</td>
-      <td>Cheese stick + carrot sticks</td>
-      <td>Lean beef patty + zucchini + brown rice</td>
-      <td class="water"><input type="checkbox" id="tue-water"></td>
-      <td class="move">Ankle circles × 15/leg <input type="checkbox" id="tue-move"></td>
-    </tr>
-    <tr>
-      <td>Wed</td>
-      <td>Smoothie: almond milk + protein + blueberries + chia</td>
-      <td>Egg + clementine</td>
-      <td>Chicken thigh + cauliflower + couscous</td>
-      <td>Cottage cheese + pineapple</td>
-      <td>Beef meatballs + roasted carrots + quinoa</td>
-      <td class="water"><input type="checkbox" id="wed-water"></td>
-      <td class="move">Seated knee extensions × 12/leg <input type="checkbox" id="wed-move"></td>
-    </tr>
-    <tr>
-      <td>Thu</td>
-      <td>Greek yogurt + raspberries + walnuts</td>
-      <td>Cheese stick + pear</td>
-      <td>Chicken breast + broccoli/cauli + brown rice</td>
-      <td>Boiled egg + cucumber</td>
-      <td>Pork chop + green beans + sweet potato</td>
-      <td class="water"><input type="checkbox" id="thu-water"></td>
-      <td class="move">Shoulder rolls × 12 each way <input type="checkbox" id="thu-move"></td>
-    </tr>
-    <tr>
-      <td>Fri</td>
-      <td>2 boiled eggs + whole‑grain toast + tomato slices</td>
-      <td>Almonds + apple</td>
-      <td>Pork loin + spinach salad + balsamic</td>
-      <td>Cottage cheese + blueberries</td>
-      <td>Chicken breast + roasted zucchini + quinoa</td>
-      <td class="water"><input type="checkbox" id="fri-water"></td>
-      <td class="move">Neck tilts × 8/side <input type="checkbox" id="fri-move"></td>
-    </tr>
-    <tr>
-      <td>Sat</td>
-      <td>Greek yogurt + protein + strawberries + chia</td>
-      <td>Egg + clementine</td>
-      <td>Lean ground beef + mixed veg + couscous</td>
-      <td>Almonds + banana</td>
-      <td>Chicken thigh + roasted carrots + sweet potato</td>
-      <td class="water"><input type="checkbox" id="sat-water"></td>
-      <td class="move">Seated marching × 20 <input type="checkbox" id="sat-move"></td>
-    </tr>
-    <tr>
-      <td>Sun</td>
-      <td>Smoothie: almond milk + protein + kiwi + flax</td>
-      <td>Cheese stick + pear</td>
-      <td>Chicken breast + green salad + olive oil/lemon</td>
-      <td>Boiled egg + cucumber</td>
-      <td>Pork tenderloin + broccoli + brown rice</td>
-      <td class="water"><input type="checkbox" id="sun-water"></td>
-      <td class="move">Wrist stretches × 15s/side <input type="checkbox" id="sun-move"></td>
-    </tr>
-  </tbody>
+<thead>
+<tr>
+  <th>Day</th>
+  <th>Breakfast</th>
+  <th>AM Snack</th>
+  <th>Lunch</th>
+  <th>PM Snack</th>
+  <th>Dinner</th>
+  <th>Water ✓</th>
+  <th>Skin‑Support Move</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Mon</td>
+  <td>Greek yogurt + protein + kiwi + flax</td>
+  <td>1 boiled egg + ½ orange</td>
+  <td>Chicken breast + spinach + peppers + brown rice</td>
+  <td>Cottage cheese + cucumber</td>
+  <td>Pork tenderloin + steamed broccoli + sweet potato</td>
+  <td class="water"><input type="checkbox" id="mon-water"></td>
+  <td class="move">Seated torso twists – Sit tall, cross arms; rotate slowly right, back to center, then left</td>
+</tr>
+<tr>
+  <td>Tue</td>
+  <td>2 eggs + whole‑grain toast + ½ avocado</td>
+  <td>10 almonds + strawberries</td>
+  <td>Chicken breast + salad + olive oil/lemon</td>
+  <td>Cheese stick + carrot sticks</td>
+  <td>Lean beef patty + zucchini + brown rice</td>
+  <td class="water"><input type="checkbox" id="tue-water"></td>
+  <td class="move">Ankle circles – Sit with feet off floor; make slow circles at the ankle, both directions</td>
+</tr>
+<tr>
+  <td>Wed</td>
+  <td>Smoothie: almond milk + protein + blueberries + chia</td>
+  <td>1 boiled egg + 1 clementine</td>
+  <td>Chicken thigh + cauliflower + brown rice</td>
+  <td>Cottage cheese + pineapple</td>
+  <td>Beef meatballs + roasted carrots + sweet potato</td>
+  <td class="water"><input type="checkbox" id="wed-water"></td>
+  <td class="move">Seated knee extensions – Sit tall, straighten one leg, hold 2 sec, lower, alternate legs</td>
+</tr>
+<tr>
+  <td>Thu</td>
+  <td>Greek yogurt + raspberries + walnuts</td>
+  <td>Cheese stick + pear</td>
+  <td>Chicken breast + broccoli/cauli mix + brown rice</td>
+  <td>Boiled egg + cucumber</td>
+  <td>Pork chop + green beans + sweet potato</td>
+  <td class="water"><input type="checkbox" id="thu-water"></td>
+  <td class="move">Shoulder rolls – Roll shoulders up, back, and down in a smooth circle, then reverse</td>
+</tr>
+<tr>
+  <td>Fri</td>
+  <td>2 boiled eggs + whole‑grain toast + tomato slices</td>
+  <td>Almonds + apple</td>
+  <td>Pork loin + spinach salad + balsamic</td>
+  <td>Cottage cheese + blueberries</td>
+  <td>Chicken breast + roasted zucchini + sweet potato</td>
+  <td class="water"><input type="checkbox" id="fri-water"></td>
+  <td class="move">Neck tilts – Tilt head toward shoulder (ear to shoulder), hold briefly, alternate sides</td>
+</tr>
+<tr>
+  <td>Sat</td>
+  <td>Greek yogurt + protein + strawberries + chia</td>
+  <td>Boiled egg + clementine</td>
+  <td>Lean ground beef + mixed vegetables + brown rice</td>
+  <td>Almonds + banana</td>
+  <td>Chicken thigh + roasted carrots + sweet potato</td>
+  <td class="water"><input type="checkbox" id="sat-water"></td>
+  <td class="move">Seated marching – Sit tall, lift one knee toward chest, lower, then switch legs</td>
+</tr>
+<tr>
+  <td>Sun</td>
+  <td>Smoothie: almond milk + protein + kiwi + flax</td>
+  <td>Cheese stick + pear</td>
+  <td>Chicken breast + green salad + olive oil/lemon</td>
+  <td>Boiled egg + cucumber</td>
+  <td>Pork tenderloin + broccoli + brown rice</td>
+  <td class="water"><input type="checkbox" id="sun-water"></td>
+  <td class="move">Wrist stretches – Extend arm, palm up; gently pull fingers down, then palm down and pull fingers toward you</td>
+</tr>
+</tbody>
 </table>
 </main>
 
-<footer>
-  &copy; 2025 — Balanced nutrition & movement for sustainable fat loss and healthy skin.
-</footer>
-
 <script>
-  // Persist checkbox state
+  // Drawer toggle
+  const drawerToggle = document.getElementById('drawerToggle');
+  const drawerContent = document.getElementById('drawerContent');
+  drawerToggle.addEventListener('click', () => {
+    drawerToggle.classList.toggle('open');
+    drawerContent.classList.toggle('open');
+  });
+
+  // Persist checkboxes in localStorage
   const boxes = document.querySelectorAll('input[type="checkbox"]');
   boxes.forEach(box => {
     const key = 'tracker-' + box.id;
-    // restore
-    if(localStorage.getItem(key) === 'true'){ box.checked = true; }
-    // save
+    // restore saved state
+    if (localStorage.getItem(key) === 'true') {
+      box.checked = true;
+    }
+    // save on change
     box.addEventListener('change', () => {
       localStorage.setItem(key, box.checked);
     });
   });
-  // Reset button
+
+  // Reset all
   document.getElementById('reset').addEventListener('click', () => {
-    if(!confirm('Clear all checkboxes?')) return;
+    if (!confirm('Clear all checkboxes?')) return;
     boxes.forEach(box => {
       box.checked = false;
       localStorage.removeItem('tracker-' + box.id);
