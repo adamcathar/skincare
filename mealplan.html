@@ -198,6 +198,91 @@
 </tr>
 </tbody>
 </table>
+  <section style="max-width:800px;margin:auto;background:#fff;border:1px solid #ddd;border-radius:8px;padding:16px;">
+  <h2>🛒 Weekly Shopping List</h2>
+  <p>Everything you need for the 7‑day skin‑support meal plan</p>
+  
+  <div id="shop-list">
+    <h3>🥩 Protein</h3>
+    <label><input type="checkbox"> Chicken breast, skinless – ~3½ lbs</label><br>
+    <label><input type="checkbox"> Chicken thighs, skinless – ~1¼ lbs</label><br>
+    <label><input type="checkbox"> Pork tenderloin – ~1½ lbs</label><br>
+    <label><input type="checkbox"> Pork loin or pork chops, lean – ~1 lb</label><br>
+    <label><input type="checkbox"> Lean ground beef (90% lean or higher) – ~1½ lbs</label><br>
+    <label><input type="checkbox"> Lean beef meatballs – ~12 oz cooked</label><br>
+    <label><input type="checkbox"> Large eggs – ~2½ dozen</label><br>
+    <label><input type="checkbox"> Low‑fat cottage cheese – ~7½ cups</label><br>
+    <label><input type="checkbox"> Plain Greek yogurt, unsweetened – ~7 cups</label><br>
+    <label><input type="checkbox"> Mozzarella cheese sticks (part‑skim) – 5 sticks</label><br>
+    <label><input type="checkbox"> Plain or vanilla protein powder (20–25 g protein per scoop) – ~7 scoops</label><br>
+
+    <h3>🍏 Fruit</h3>
+    <label><input type="checkbox"> Kiwi – 3 medium</label><br>
+    <label><input type="checkbox"> Oranges – 2 large</label><br>
+    <label><input type="checkbox"> Clementines – 3 small</label><br>
+    <label><input type="checkbox"> Pears – 3 medium</label><br>
+    <label><input type="checkbox"> Apples – 2 medium</label><br>
+    <label><input type="checkbox"> Bananas – 2 medium</label><br>
+    <label><input type="checkbox"> Strawberries – ~3 cups</label><br>
+    <label><input type="checkbox"> Blueberries – ~1½ cups</label><br>
+    <label><input type="checkbox"> Raspberries – ½ cup</label><br>
+    <label><input type="checkbox"> Pineapple – ½ cup diced</label><br>
+
+    <h3>🥦 Vegetables</h3>
+    <label><input type="checkbox"> Spinach leaves – 3 cups</label><br>
+    <label><input type="checkbox"> Lettuce or mixed greens – 4 cups</label><br>
+    <label><input type="checkbox"> Bell peppers – 1½ cups chopped</label><br>
+    <label><input type="checkbox"> Tomatoes – ~2 cups</label><br>
+    <label><input type="checkbox"> Cucumber – 2 cups sliced</label><br>
+    <label><input type="checkbox"> Zucchini – 2 cups cooked</label><br>
+    <label><input type="checkbox"> Broccoli florets – 2 cups cooked</label><br>
+    <label><input type="checkbox"> Cauliflower florets – 2 cups cooked</label><br>
+    <label><input type="checkbox"> Broccoli/cauliflower mix – 1 cup cooked</label><br>
+    <label><input type="checkbox"> Green beans – 1 cup cooked</label><br>
+    <label><input type="checkbox"> Carrots – 2 cups</label><br>
+    <label><input type="checkbox"> Mixed non‑starchy vegetables – 1 cup cooked</label><br>
+    <label><input type="checkbox"> Baby carrots – 1 cup</label><br>
+
+    <h3>🌾 Carbs</h3>
+    <label><input type="checkbox"> Brown rice (dry) – ~3½ cups uncooked</label><br>
+    <label><input type="checkbox"> Sweet potatoes, medium – 5</label><br>
+    <label><input type="checkbox"> Whole‑grain bread – 6 slices</label><br>
+
+    <h3>🥜 Nuts & Seeds</h3>
+    <label><input type="checkbox"> Almonds, whole – ~½ cup (40 nuts)</label><br>
+    <label><input type="checkbox"> Walnuts, chopped – 2 tbsp</label><br>
+    <label><input type="checkbox"> Chia seeds – 2 tbsp</label><br>
+    <label><input type="checkbox"> Ground flaxseed – 2 tbsp</label><br>
+
+    <h3>🥤 Pantry & Other</h3>
+    <label><input type="checkbox"> Unsweetened almond milk – 3 cups</label><br>
+    <label><input type="checkbox"> Olive oil – ~5 tsp</label><br>
+    <label><input type="checkbox"> Balsamic vinegar – drizzle for salad</label><br>
+    <label><input type="checkbox"> Lemons – 2 medium</label><br>
+    <label><input type="checkbox"> Herbs & spices: pepper, garlic powder, paprika, cinnamon, salt‑free blends</label><br>
+  </div>
+
+  <button onclick="resetShopList()" style="margin-top:10px;padding:6px 10px;">Reset List</button>
+</section>
+
+<script>
+  const shopItems = document.querySelectorAll('#shop-list input[type="checkbox"]');
+  shopItems.forEach((box, i) => {
+    const key = 'shoplist-' + i;
+    if (localStorage.getItem(key) === 'true') box.checked = true;
+    box.addEventListener('change', () => {
+      localStorage.setItem(key, box.checked);
+    });
+  });
+  function resetShopList(){
+    if(!confirm('Clear all checkmarks?')) return;
+    shopItems.forEach((box,i) => {
+      box.checked = false;
+      localStorage.removeItem('shoplist-' + i);
+    });
+  }
+</script>
+
 </main>
 
 <script>
