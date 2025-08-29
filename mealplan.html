@@ -44,38 +44,106 @@
 
 <main>
 
+<!-- Drawer 1: Plan Notes -->
 <section class="drawer">
-  <div class="drawer-header" id="drawerToggle">
+  <div class="drawer-header" id="drawerToggle-notes">
     <div>Plan Notes & Guidelines</div>
     <div class="arrow">▶</div>
   </div>
-  <div class="drawer-content" id="drawerContent">
+  <div class="drawer-content" id="drawerContent-notes">
     <div class="drawer-columns">
       <div class="info">
         <h3>Goals</h3>
         <p><strong>Calories:</strong> ~1,650–1,800/day</p>
-        <p><strong>Protein:</strong> 110–140 g/day — this means foods like chicken, lean beef, eggs, Greek yogurt, cottage cheese, or **plain protein powder** (whey, casein, or a plant blend). Use “unflavored” or “vanilla” powder with no added sugar, and measure with the scoop it comes with — usually 20–25 g protein per scoop.</p>
+        <p><strong>Protein:</strong> 110–140 g/day — e.g., chicken, lean beef, eggs, Greek yogurt, cottage cheese, or plain protein powder (20–25 g protein per scoop, no sugar)</p>
         <p><strong>Water:</strong> 2.5–3 L/day</p>
       </div>
       <div class="info">
         <h3>Skin Support</h3>
-        <p>**Vitamin C foods**: berries, kiwi, bell peppers — help your body make collagen.</p>
-        <p>**Healthy fats**: nuts, seeds, olive oil — keep skin’s outer layer strong.</p>
-        <p>**Zinc/Copper**: meats, nuts, seeds — support elasticity & repair.</p>
+        <p>Vitamin C foods (berries, kiwi, peppers) for collagen synthesis.</p>
+        <p>Healthy fats (nuts, seeds, olive oil) for skin barrier health.</p>
+        <p>Zinc/copper (meat, nuts, seeds) for elasticity.</p>
       </div>
       <div class="info">
         <h3>Activity</h3>
-        <p>Each “Move” in the table says <em>exactly</em> how to do it and how long. They’re short, gentle, and can be done from a chair unless noted.</p>
-        <p>1–2 min break each hour works better than doing them all at once.</p>
+        <p>Moves are short & gentle; can be done seated.  
+           The “Move” column tells you exactly what to do and for how long.</p>
+        <p>Better to sprinkle through the day than cram all at once.</p>
       </div>
     </div>
   </div>
 </section>
 
-<div class="controls">
-  <button id="reset">Reset All</button>
-  <button onclick="window.print()">Print</button>
-</div>
+<!-- Drawer 2: Shopping List -->
+<section class="drawer">
+  <div class="drawer-header" id="drawerToggle-shopping">
+    <div>Shopping List</div>
+    <div class="arrow">▶</div>
+  </div>
+  <div class="drawer-content" id="drawerContent-shopping">
+    <div id="shop-list">
+      <h3>🥩 Protein</h3>
+      <label><input type="checkbox"> Chicken breast, skinless – ~3½ lbs</label><br>
+      <label><input type="checkbox"> Chicken thighs, skinless – ~1¼ lbs</label><br>
+      <label><input type="checkbox"> Pork tenderloin – ~1½ lbs</label><br>
+      <label><input type="checkbox"> Pork loin or pork chops, lean – ~1 lb</label><br>
+      <label><input type="checkbox"> Lean ground beef (90% lean or higher) – ~1½ lbs</label><br>
+      <label><input type="checkbox"> Lean beef meatballs – ~12 oz cooked</label><br>
+      <label><input type="checkbox"> Large eggs – ~2½ dozen</label><br>
+      <label><input type="checkbox"> Low‑fat cottage cheese – ~7½ cups</label><br>
+      <label><input type="checkbox"> Plain Greek yogurt, unsweetened – ~7 cups</label><br>
+      <label><input type="checkbox"> Mozzarella cheese sticks – 5 sticks</label><br>
+      <label><input type="checkbox"> Plain or vanilla protein powder – ~7 scoops</label><br>
+      <!-- We'll finish the shopping list in Part 2 -->
+      <h3>🍏 Fruit</h3>
+      <label><input type="checkbox"> Kiwi – 3 medium</label><br>
+      <label><input type="checkbox"> Oranges – 2 large</label><br>
+      <label><input type="checkbox"> Clementines – 3 small</label><br>
+      <label><input type="checkbox"> Pears – 3 medium</label><br>
+      <label><input type="checkbox"> Apples – 2 medium</label><br>
+      <label><input type="checkbox"> Bananas – 2 medium</label><br>
+      <label><input type="checkbox"> Strawberries – ~3 cups</label><br>
+      <label><input type="checkbox"> Blueberries – ~1½ cups</label><br>
+      <label><input type="checkbox"> Raspberries – ½ cup</label><br>
+      <label><input type="checkbox"> Pineapple – ½ cup diced</label><br>
+
+      <h3>🥦 Vegetables</h3>
+      <label><input type="checkbox"> Spinach leaves – 3 cups</label><br>
+      <label><input type="checkbox"> Lettuce or mixed greens – 4 cups</label><br>
+      <label><input type="checkbox"> Bell peppers – 1½ cups chopped</label><br>
+      <label><input type="checkbox"> Tomatoes – ~2 cups</label><br>
+      <label><input type="checkbox"> Cucumber – 2 cups sliced</label><br>
+      <label><input type="checkbox"> Zucchini – 2 cups cooked</label><br>
+      <label><input type="checkbox"> Broccoli florets – 2 cups cooked</label><br>
+      <label><input type="checkbox"> Cauliflower florets – 2 cups cooked</label><br>
+      <label><input type="checkbox"> Broccoli/cauliflower mix – 1 cup cooked</label><br>
+      <label><input type="checkbox"> Green beans – 1 cup cooked</label><br>
+      <label><input type="checkbox"> Carrots – 2 cups</label><br>
+      <label><input type="checkbox"> Mixed non‑starchy vegetables – 1 cup cooked</label><br>
+      <label><input type="checkbox"> Baby carrots – 1 cup</label><br>
+
+      <h3>🌾 Carbs</h3>
+      <label><input type="checkbox"> Brown rice (dry) – ~3½ cups uncooked</label><br>
+      <label><input type="checkbox"> Sweet potatoes, medium – 5</label><br>
+      <label><input type="checkbox"> Whole‑grain bread – 6 slices</label><br>
+
+      <h3>🥜 Nuts & Seeds</h3>
+      <label><input type="checkbox"> Almonds, whole – ~½ cup (40 nuts)</label><br>
+      <label><input type="checkbox"> Walnuts, chopped – 2 tbsp</label><br>
+      <label><input type="checkbox"> Chia seeds – 2 tbsp</label><br>
+      <label><input type="checkbox"> Ground flaxseed – 2 tbsp</label><br>
+
+      <h3>🥤 Pantry & Other</h3>
+      <label><input type="checkbox"> Unsweetened almond milk – 3 cups</label><br>
+      <label><input type="checkbox"> Olive oil – ~5 tsp</label><br>
+      <label><input type="checkbox"> Balsamic vinegar – drizzle for salad</label><br>
+      <label><input type="checkbox"> Lemons – 2 medium</label><br>
+      <label><input type="checkbox"> Herbs & spices: pepper, garlic powder, paprika, cinnamon, salt‑free blends</label><br>
+
+      <button onclick="resetShopList()" style="margin-top:10px;padding:6px 10px;">Reset List</button>
+    </div>
+  </div>
+</section>
 <table>
 <thead>
 <tr>
@@ -92,211 +160,99 @@
 <tbody>
 <tr>
   <td>Mon</td>
-  <td>
-    1 cup plain Greek yogurt (unsweetened) + 1 scoop plain or vanilla protein powder (20–25 g protein per scoop, no added sugar) + 1 peeled, sliced kiwi + 1 tbsp ground flaxseed. Stir well before eating.
-  </td>
-  <td>1 boiled egg (hard‑cooked) + ½ large orange</td>
-  <td>4 oz skinless chicken breast (grilled or baked) + 1 cup fresh spinach leaves + ½ cup chopped bell peppers (any color) + ½ cup cooked brown rice</td>
+  <td>1 cup plain Greek yogurt + 1 scoop plain/vanilla protein powder (20–25 g protein) + 1 peeled, sliced kiwi + 1 tbsp ground flaxseed. Stir well.</td>
+  <td>1 boiled egg + ½ large orange</td>
+  <td>4 oz skinless chicken breast (grilled/baked) + 1 cup fresh spinach + ½ cup chopped bell peppers + ½ cup cooked brown rice</td>
   <td>¾ cup low‑fat cottage cheese + ½ cup sliced cucumber</td>
-  <td>4 oz pork tenderloin (trimmed, baked or grilled) + 1 cup steamed broccoli + ½ medium baked sweet potato</td>
+  <td>4 oz pork tenderloin (trimmed) + 1 cup steamed broccoli + ½ medium baked sweet potato</td>
   <td class="water"><input type="checkbox" id="mon-water"></td>
-  <td class="move">
-    Seated torso twists – Sit tall in a chair, cross arms over chest, slowly turn your upper body to the right as far as comfortable, return to center, then turn to the left.  
-    <strong>Do:</strong> 5 twists each side (~45–60 sec total)
-  </td>
+  <td class="move">Seated torso twists – Sit tall, cross arms; slowly turn right, back to center, then left. 5 twists each side (~45–60 sec total)</td>
 </tr>
 
 <tr>
   <td>Tue</td>
-  <td>
-    2 large eggs (scrambled, boiled, or poached) + 1 slice whole‑grain toast + ½ cup sliced fresh strawberries
-  </td>
+  <td>2 large eggs (scrambled/boiled) + 1 slice whole‑grain toast + ½ cup sliced fresh strawberries</td>
   <td>10 whole almonds + 1 cup fresh strawberries</td>
-  <td>4 oz skinless chicken breast + large salad (2 cups lettuce or spinach, ½ cup tomatoes, ½ cup cucumber) dressed with 1 tsp olive oil + squeeze of lemon</td>
+  <td>4 oz skinless chicken breast + large salad (2 cups greens, ½ cup tomatoes, ½ cup cucumber) with 1 tsp olive oil + lemon</td>
   <td>1 mozzarella cheese stick + 1 cup baby carrot sticks</td>
-  <td>4 oz lean ground beef patty (at least 90% lean) + 1 cup cooked zucchini (steamed or roasted) + ½ cup cooked brown rice</td>
+  <td>4 oz lean ground beef patty (90% lean) + 1 cup cooked zucchini + ½ cup cooked brown rice</td>
   <td class="water"><input type="checkbox" id="tue-water"></td>
-  <td class="move">
-    Ankle circles – Sit in a chair with feet lifted slightly off the floor. Slowly rotate one ankle in big circles 15 times clockwise, then 15 times counterclockwise. Repeat with the other ankle.  
-    <strong>Do:</strong> ~40–60 sec per foot
-  </td>
+  <td class="move">Ankle circles – Sit with feet off floor; make slow circles at ankle 15× clockwise, 15× counter‑clockwise each foot (~40–60 sec per foot)</td>
 </tr>
 
 <tr>
   <td>Wed</td>
-  <td>
-    Smoothie: 1 cup unsweetened almond milk + 1 scoop plain or vanilla protein powder (20–25 g protein) + ½ cup blueberries + 1 tbsp chia seeds. Blend until smooth.
-  </td>
+  <td>Smoothie: 1 cup unsweetened almond milk + 1 scoop plain/vanilla protein powder (20–25 g protein) + ½ cup blueberries + 1 tbsp chia seeds. Blend until smooth.</td>
   <td>1 boiled egg + 1 small clementine</td>
-  <td>4 oz skinless chicken thigh (grilled or baked) + 1 cup cooked cauliflower + ½ cup cooked brown rice</td>
+  <td>4 oz skinless chicken thigh (grilled/baked) + 1 cup cooked cauliflower + ½ cup cooked brown rice</td>
   <td>¾ cup low‑fat cottage cheese + ½ cup diced pineapple</td>
-  <td>4 oz beef meatballs (lean, baked) + 1 cup roasted carrots + ½ medium baked sweet potato</td>
+  <td>4 oz beef meatballs (lean) + 1 cup roasted carrots + ½ medium baked sweet potato</td>
   <td class="water"><input type="checkbox" id="wed-water"></td>
-  <td class="move">
-    Seated knee extensions – Sit tall, straighten one leg until your knee is almost locked, hold for 2 seconds, then slowly lower. Alternate legs.  
-    <strong>Do:</strong> 12 lifts per leg (~1–2 min total)
-  </td>
+  <td class="move">Seated knee extensions – Sit tall, straighten one leg, hold 2 sec, lower; alternate legs. 12 lifts per leg (~1–2 min total)</td>
 </tr>
 <tr>
   <td>Thu</td>
-  <td>
-    1 cup plain Greek yogurt (unsweetened) + ½ cup fresh raspberries + 2 tbsp chopped walnuts
-  </td>
+  <td>1 cup plain Greek yogurt (unsweetened) + ½ cup fresh raspberries + 2 tbsp chopped walnuts</td>
   <td>1 mozzarella cheese stick + 1 ripe pear</td>
   <td>4 oz skinless chicken breast + 1 cup cooked broccoli and cauliflower mix + ½ cup cooked brown rice</td>
   <td>1 boiled egg + ½ cup sliced cucumber</td>
   <td>4 oz pork chop (grilled or baked) + 1 cup steamed green beans + ½ medium baked sweet potato</td>
   <td class="water"><input type="checkbox" id="thu-water"></td>
-  <td class="move">
-    Shoulder rolls – Sit or stand tall, roll shoulders up, back, and down in a smooth circle 12 times, then reverse for 12 rolls forward (~60 sec total)
-  </td>
+  <td class="move">Shoulder rolls – Sit or stand tall. Roll shoulders up, back, and down in a smooth circle 12 times, then reverse for 12 rolls forward (~60 sec total)</td>
 </tr>
 
 <tr>
   <td>Fri</td>
-  <td>
-    2 boiled eggs + 1 slice whole‑grain toast + 3 thick slices fresh tomato
-  </td>
+  <td>2 boiled eggs + 1 slice whole‑grain toast + 3 thick slices fresh tomato</td>
   <td>10 almonds + 1 medium apple</td>
   <td>4 oz pork loin (roasted or grilled) + 2 cups spinach leaves + ½ cup chopped tomatoes + drizzle balsamic vinegar</td>
   <td>¾ cup low‑fat cottage cheese + ½ cup fresh blueberries</td>
   <td>4 oz skinless chicken breast + 1 cup roasted zucchini + ½ medium baked sweet potato</td>
   <td class="water"><input type="checkbox" id="fri-water"></td>
-  <td class="move">
-    Neck tilts – Sit or stand tall, slowly tilt head toward right shoulder (ear toward shoulder), hold 2 sec, return to center, then tilt left. Do 8 tilts each side (~30–40 sec total)
-  </td>
+  <td class="move">Neck tilts – Sit or stand tall. Slowly tilt head toward right shoulder, hold 2 sec, return to center, then tilt left. Do 8 tilts each side (~30–40 sec total)</td>
 </tr>
 
 <tr>
   <td>Sat</td>
-  <td>
-    1 cup plain Greek yogurt (unsweetened) + 1 scoop plain or vanilla protein powder (20–25 g protein) + ½ cup sliced strawberries + 1 tbsp chia seeds. Stir well before eating.
-  </td>
+  <td>1 cup plain Greek yogurt + 1 scoop plain/vanilla protein powder (20–25 g protein) + ½ cup sliced strawberries + 1 tbsp chia seeds. Stir well.</td>
   <td>1 boiled egg + 1 small clementine</td>
-  <td>4 oz lean ground beef (at least 90% lean, pan‑browned and drained) + 1 cup mixed steamed vegetables + ½ cup cooked brown rice</td>
+  <td>4 oz lean ground beef (90% lean, pan‑browned and drained) + 1 cup mixed steamed vegetables + ½ cup cooked brown rice</td>
   <td>10 almonds + 1 medium banana</td>
   <td>4 oz skinless chicken thigh + 1 cup roasted carrots + ½ medium baked sweet potato</td>
   <td class="water"><input type="checkbox" id="sat-water"></td>
-  <td class="move">
-    Seated marching – Sit tall, lift right knee toward chest, lower, then left knee. Keep alternating at a comfortable pace. Do 20 marches total (~60–90 sec)
-  </td>
+  <td class="move">Seated marching – Sit tall. Lift right knee toward chest, lower, then left knee. Keep alternating until you’ve done 20 marches total (~60–90 sec)</td>
 </tr>
 
 <tr>
   <td>Sun</td>
-  <td>
-    Smoothie: 1 cup unsweetened almond milk + 1 scoop plain or vanilla protein powder (20–25 g protein) + 1 peeled, sliced kiwi + 1 tbsp ground flaxseed. Blend until smooth.
-  </td>
+  <td>Smoothie: 1 cup unsweetened almond milk + 1 scoop plain/vanilla protein powder (20–25 g protein) + 1 peeled, sliced kiwi + 1 tbsp ground flaxseed. Blend until smooth.</td>
   <td>1 mozzarella cheese stick + 1 ripe pear</td>
   <td>4 oz skinless chicken breast + large green salad (2 cups lettuce, ½ cup tomato, ½ cup cucumber) with 1 tsp olive oil + squeeze lemon</td>
   <td>1 boiled egg + ½ cup sliced cucumber</td>
   <td>4 oz pork tenderloin + 1 cup steamed broccoli + ½ cup cooked brown rice</td>
   <td class="water"><input type="checkbox" id="sun-water"></td>
-  <td class="move">
-    Wrist stretches – Extend right arm forward, palm up; gently pull fingers down with other hand for 15 sec. Flip palm down; pull fingers toward you for 15 sec. Repeat with left arm (~1 min total)
-  </td>
+  <td class="move">Wrist stretches – Extend right arm forward, palm up; gently pull fingers down with other hand for 15 sec. Flip palm down; pull fingers toward you for 15 sec. Repeat with left arm (~1 min total)</td>
 </tr>
 </tbody>
 </table>
-  <section style="max-width:800px;margin:auto;background:#fff;border:1px solid #ddd;border-radius:8px;padding:16px;">
-  <h2>🛒 Weekly Shopping List</h2>
-  <p>Everything you need for the 7‑day skin‑support meal plan</p>
-  
-  <div id="shop-list">
-    <h3>🥩 Protein</h3>
-    <label><input type="checkbox"> Chicken breast, skinless – ~3½ lbs</label><br>
-    <label><input type="checkbox"> Chicken thighs, skinless – ~1¼ lbs</label><br>
-    <label><input type="checkbox"> Pork tenderloin – ~1½ lbs</label><br>
-    <label><input type="checkbox"> Pork loin or pork chops, lean – ~1 lb</label><br>
-    <label><input type="checkbox"> Lean ground beef (90% lean or higher) – ~1½ lbs</label><br>
-    <label><input type="checkbox"> Lean beef meatballs – ~12 oz cooked</label><br>
-    <label><input type="checkbox"> Large eggs – ~2½ dozen</label><br>
-    <label><input type="checkbox"> Low‑fat cottage cheese – ~7½ cups</label><br>
-    <label><input type="checkbox"> Plain Greek yogurt, unsweetened – ~7 cups</label><br>
-    <label><input type="checkbox"> Mozzarella cheese sticks (part‑skim) – 5 sticks</label><br>
-    <label><input type="checkbox"> Plain or vanilla protein powder (20–25 g protein per scoop) – ~7 scoops</label><br>
-
-    <h3>🍏 Fruit</h3>
-    <label><input type="checkbox"> Kiwi – 3 medium</label><br>
-    <label><input type="checkbox"> Oranges – 2 large</label><br>
-    <label><input type="checkbox"> Clementines – 3 small</label><br>
-    <label><input type="checkbox"> Pears – 3 medium</label><br>
-    <label><input type="checkbox"> Apples – 2 medium</label><br>
-    <label><input type="checkbox"> Bananas – 2 medium</label><br>
-    <label><input type="checkbox"> Strawberries – ~3 cups</label><br>
-    <label><input type="checkbox"> Blueberries – ~1½ cups</label><br>
-    <label><input type="checkbox"> Raspberries – ½ cup</label><br>
-    <label><input type="checkbox"> Pineapple – ½ cup diced</label><br>
-
-    <h3>🥦 Vegetables</h3>
-    <label><input type="checkbox"> Spinach leaves – 3 cups</label><br>
-    <label><input type="checkbox"> Lettuce or mixed greens – 4 cups</label><br>
-    <label><input type="checkbox"> Bell peppers – 1½ cups chopped</label><br>
-    <label><input type="checkbox"> Tomatoes – ~2 cups</label><br>
-    <label><input type="checkbox"> Cucumber – 2 cups sliced</label><br>
-    <label><input type="checkbox"> Zucchini – 2 cups cooked</label><br>
-    <label><input type="checkbox"> Broccoli florets – 2 cups cooked</label><br>
-    <label><input type="checkbox"> Cauliflower florets – 2 cups cooked</label><br>
-    <label><input type="checkbox"> Broccoli/cauliflower mix – 1 cup cooked</label><br>
-    <label><input type="checkbox"> Green beans – 1 cup cooked</label><br>
-    <label><input type="checkbox"> Carrots – 2 cups</label><br>
-    <label><input type="checkbox"> Mixed non‑starchy vegetables – 1 cup cooked</label><br>
-    <label><input type="checkbox"> Baby carrots – 1 cup</label><br>
-
-    <h3>🌾 Carbs</h3>
-    <label><input type="checkbox"> Brown rice (dry) – ~3½ cups uncooked</label><br>
-    <label><input type="checkbox"> Sweet potatoes, medium – 5</label><br>
-    <label><input type="checkbox"> Whole‑grain bread – 6 slices</label><br>
-
-    <h3>🥜 Nuts & Seeds</h3>
-    <label><input type="checkbox"> Almonds, whole – ~½ cup (40 nuts)</label><br>
-    <label><input type="checkbox"> Walnuts, chopped – 2 tbsp</label><br>
-    <label><input type="checkbox"> Chia seeds – 2 tbsp</label><br>
-    <label><input type="checkbox"> Ground flaxseed – 2 tbsp</label><br>
-
-    <h3>🥤 Pantry & Other</h3>
-    <label><input type="checkbox"> Unsweetened almond milk – 3 cups</label><br>
-    <label><input type="checkbox"> Olive oil – ~5 tsp</label><br>
-    <label><input type="checkbox"> Balsamic vinegar – drizzle for salad</label><br>
-    <label><input type="checkbox"> Lemons – 2 medium</label><br>
-    <label><input type="checkbox"> Herbs & spices: pepper, garlic powder, paprika, cinnamon, salt‑free blends</label><br>
-  </div>
-
-  <button onclick="resetShopList()" style="margin-top:10px;padding:6px 10px;">Reset List</button>
-</section>
-
-<script>
-  const shopItems = document.querySelectorAll('#shop-list input[type="checkbox"]');
-  shopItems.forEach((box, i) => {
-    const key = 'shoplist-' + i;
-    if (localStorage.getItem(key) === 'true') box.checked = true;
-    box.addEventListener('change', () => {
-      localStorage.setItem(key, box.checked);
-    });
-  });
-  function resetShopList(){
-    if(!confirm('Clear all checkmarks?')) return;
-    shopItems.forEach((box,i) => {
-      box.checked = false;
-      localStorage.removeItem('shoplist-' + i);
-    });
-  }
-</script>
-
 </main>
 
 <script>
-  // Drawer toggle
-  const drawerToggle = document.getElementById('drawerToggle');
-  const drawerContent = document.getElementById('drawerContent');
-  drawerToggle.addEventListener('click', () => {
-    drawerToggle.classList.toggle('open');
-    drawerContent.classList.toggle('open');
-  });
+  // Drawer toggles
+  function setupDrawer(toggleId, contentId) {
+    const toggle = document.getElementById(toggleId);
+    const content = document.getElementById(contentId);
+    toggle.addEventListener('click', () => {
+      toggle.classList.toggle('open');
+      content.classList.toggle('open');
+    });
+  }
+  setupDrawer('drawerToggle-notes', 'drawerContent-notes');
+  setupDrawer('drawerToggle-shopping', 'drawerContent-shopping');
 
-  // Persist checkboxes in localStorage
-  const boxes = document.querySelectorAll('input[type="checkbox"]');
-  boxes.forEach(box => {
+  // Persist checkboxes for meal/water/move tracker
+  const trackerBoxes = document.querySelectorAll('table input[type="checkbox"]');
+  trackerBoxes.forEach(box => {
     const key = 'tracker-' + box.id;
     if (localStorage.getItem(key) === 'true') {
       box.checked = true;
@@ -306,16 +262,38 @@
     });
   });
 
-  // Reset all checkboxes
+  // Persist checkboxes for shopping list
+  const shopBoxes = document.querySelectorAll('#shop-list input[type="checkbox"]');
+  shopBoxes.forEach((box, i) => {
+    const key = 'shoplist-' + i;
+    if (localStorage.getItem(key) === 'true') {
+      box.checked = true;
+    }
+    box.addEventListener('change', () => {
+      localStorage.setItem(key, box.checked);
+    });
+  });
+
+  // Reset tracker checkboxes
   document.getElementById('reset').addEventListener('click', () => {
-    if (!confirm('Clear all checkboxes?')) return;
-    boxes.forEach(box => {
+    if (!confirm('Clear all meal/water/move checkmarks?')) return;
+    trackerBoxes.forEach(box => {
       box.checked = false;
       localStorage.removeItem('tracker-' + box.id);
     });
   });
+
+  // Reset shopping list checkboxes
+  function resetShopList(){
+    if(!confirm('Clear all shopping list checkmarks?')) return;
+    shopBoxes.forEach((box,i) => {
+      box.checked = false;
+      localStorage.removeItem('shoplist-' + i);
+    });
+  }
 </script>
 
 </body>
 </html>
+
 
