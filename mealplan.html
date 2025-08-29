@@ -75,26 +75,25 @@
 </section>
 
 <!-- Drawer 2: Shopping List -->
-<section class="drawer">
-  <div class="drawer-header" id="drawerToggle-shopping">
-    <div>Shopping List</div>
-    <div class="arrow">▶</div>
-  </div>
-  <div class="drawer-content" id="drawerContent-shopping">
+<section id="shopping">
+  <button id="drawerToggle-shopping">🛒 Shopping List</button>
+  <div id="drawerContent-shopping" class="drawer-content">
     <div id="shop-list">
+
       <h3>🥩 Protein</h3>
-      <label><input type="checkbox"> Chicken breast, skinless – ~3½ lbs</label><br>
-      <label><input type="checkbox"> Chicken thighs, skinless – ~1¼ lbs</label><br>
-      <label><input type="checkbox"> Pork tenderloin – ~1½ lbs</label><br>
-      <label><input type="checkbox"> Pork loin or pork chops, lean – ~1 lb</label><br>
-      <label><input type="checkbox"> Lean ground beef (90% lean or higher) – ~1½ lbs</label><br>
-      <label><input type="checkbox"> Lean beef meatballs – ~12 oz cooked</label><br>
-      <label><input type="checkbox"> Large eggs – ~2½ dozen</label><br>
-      <label><input type="checkbox"> Low‑fat cottage cheese – ~7½ cups</label><br>
-      <label><input type="checkbox"> Plain Greek yogurt, unsweetened – ~7 cups</label><br>
+      <label><input type="checkbox"> Chicken breast – 20 oz (5×4 oz)</label><br>
+      <label><input type="checkbox"> Chicken thighs – 8 oz (2×4 oz)</label><br>
+      <label><input type="checkbox"> Pork tenderloin – 12 oz (3×4 oz)</label><br>
+      <label><input type="checkbox"> Pork chop – 4 oz (1×4 oz)</label><br>
+      <label><input type="checkbox"> Lean ground beef (90% lean) – 8 oz (2×4 oz)</label><br>
+      <label><input type="checkbox"> Beef meatballs (lean) – 4 oz</label><br>
+      <label><input type="checkbox"> Eggs – 18 large</label><br>
+      <label><input type="checkbox"> Low‑fat cottage cheese – ~5 cups</label><br>
+      <label><input type="checkbox"> Plain Greek yogurt (unsweetened) – ~6 cups</label><br>
       <label><input type="checkbox"> Mozzarella cheese sticks – 5 sticks</label><br>
-      <label><input type="checkbox"> Plain or vanilla protein powder – ~7 scoops</label><br>
-      <!-- We'll finish the shopping list in Part 2 -->
+      <label><input type="checkbox"> Protein powder (plain/vanilla) – enough for ~10 scoops</label><br>
+      <label><input type="checkbox"> Collagen peptides (optional) – unflavoured, ~7 scoops/week</label><br>
+
       <h3>🍏 Fruit</h3>
       <label><input type="checkbox"> Kiwi – 3 medium</label><br>
       <label><input type="checkbox"> Oranges – 2 large</label><br>
@@ -109,26 +108,25 @@
 
       <h3>🥦 Vegetables</h3>
       <label><input type="checkbox"> Spinach leaves – 3 cups</label><br>
-      <label><input type="checkbox"> Lettuce or mixed greens – 4 cups</label><br>
-      <label><input type="checkbox"> Bell peppers – 1½ cups chopped</label><br>
-      <label><input type="checkbox"> Tomatoes – ~2 cups</label><br>
+      <label><input type="checkbox"> Lettuce or mixed greens – 2 cups</label><br>
+      <label><input type="checkbox"> Bell peppers – ½ cup chopped</label><br>
+      <label><input type="checkbox"> Tomatoes – 1½ cups</label><br>
       <label><input type="checkbox"> Cucumber – 2 cups sliced</label><br>
       <label><input type="checkbox"> Zucchini – 2 cups cooked</label><br>
       <label><input type="checkbox"> Broccoli florets – 2 cups cooked</label><br>
-      <label><input type="checkbox"> Cauliflower florets – 2 cups cooked</label><br>
+      <label><input type="checkbox"> Cauliflower florets – 1 cup cooked</label><br>
       <label><input type="checkbox"> Broccoli/cauliflower mix – 1 cup cooked</label><br>
       <label><input type="checkbox"> Green beans – 1 cup cooked</label><br>
       <label><input type="checkbox"> Carrots – 2 cups</label><br>
-      <label><input type="checkbox"> Mixed non‑starchy vegetables – 1 cup cooked</label><br>
       <label><input type="checkbox"> Baby carrots – 1 cup</label><br>
 
       <h3>🌾 Carbs</h3>
-      <label><input type="checkbox"> Brown rice (dry) – ~3½ cups uncooked</label><br>
+      <label><input type="checkbox"> Brown rice (dry) – ~2½ cups uncooked</label><br>
       <label><input type="checkbox"> Sweet potatoes, medium – 5</label><br>
-      <label><input type="checkbox"> Whole‑grain bread – 6 slices</label><br>
+      <label><input type="checkbox"> Whole‑grain bread – 4 slices</label><br>
 
       <h3>🥜 Nuts & Seeds</h3>
-      <label><input type="checkbox"> Almonds, whole – ~½ cup (40 nuts)</label><br>
+      <label><input type="checkbox"> Almonds, whole – ~¾ cup (60 nuts)</label><br>
       <label><input type="checkbox"> Walnuts, chopped – 2 tbsp</label><br>
       <label><input type="checkbox"> Chia seeds – 2 tbsp</label><br>
       <label><input type="checkbox"> Ground flaxseed – 2 tbsp</label><br>
@@ -136,7 +134,7 @@
       <h3>🥤 Pantry & Other</h3>
       <label><input type="checkbox"> Unsweetened almond milk – 3 cups</label><br>
       <label><input type="checkbox"> Olive oil – ~5 tsp</label><br>
-      <label><input type="checkbox"> Balsamic vinegar – drizzle for salad</label><br>
+      <label><input type="checkbox"> Balsamic vinegar – small bottle</label><br>
       <label><input type="checkbox"> Lemons – 2 medium</label><br>
       <label><input type="checkbox"> Herbs & spices: pepper, garlic powder, paprika, cinnamon, salt‑free blends</label><br>
 
@@ -144,18 +142,10 @@
     </div>
   </div>
 </section>
-<table>
-<thead>
-<tr>
-  <th>Day</th>
-  <th>Breakfast</th>
-  <th>AM Snack</th>
-  <th>Lunch</th>
-  <th>PM Snack</th>
-  <th>Dinner</th>
-  <th>Water ✓</th>
-  <th>Skin‑Support Move (with time)</th>
-</tr>
+
+      
+
+
 </thead>
 <table>
 <thead>
