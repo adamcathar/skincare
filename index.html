@@ -1,421 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>Skincare: Full Routine, Product Guides, Zones, and Budget Shopping</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Routine Hub</title>
   <style>
-    :root{
-      --bg:#0f1115;
-      --card:#151823;
-      --ink:#e8ebf0;
-      --muted:#aab2c5;
-      --accent:#7cc4ff;
-      --accent-2:#9ef6cf;
-      --line:#23283a;
-      --highlight:#1b2030;
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f0f0f0;
+      margin: 0;
+      padding: 40px 20px;
+      text-align: center;
+      color: #333;
     }
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial}
-    h1,h2{margin:0 0 8px}
-    a{color:var(--accent)}
-    .wrap{max-width:1100px;margin:24px auto;padding:0 16px}
-    .topbar{
-      display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-start;align-items:center;margin:0 0 16px
+    h1 {
+      font-size: 2em;
+      margin-bottom: 20px;
     }
-    .btn{
-      background:var(--highlight);color:var(--ink);border:1px solid var(--line);
-      padding:8px 12px;border-radius:8px;cursor:pointer
+    .link-box {
+      background: #fff;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      margin: 15px auto;
+      padding: 20px;
+      max-width: 400px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease;
     }
-    .btn:hover{border-color:var(--accent)}
-    details{
-      background:var(--card);border:1px solid var(--line);border-radius:12px;
-      margin:12px 0;overflow:hidden
+    .link-box:hover {
+      transform: scale(1.02);
     }
-    summary{
-      list-style:none;cursor:pointer;padding:14px 16px;font-weight:600;
-      display:flex;align-items:center;gap:8px;background:linear-gradient(0deg,transparent,rgba(255,255,255,0.02));
-      position:relative
+    a {
+      text-decoration: none;
+      color: #0078D4;
+      font-size: 1.2em;
+      font-weight: bold;
     }
-    summary::-webkit-details-marker{display:none}
-    summary:before{
-      content:"▸";transition:transform .2s ease;color:var(--accent)
+    p {
+      margin-top: 8px;
+      font-size: 0.95em;
+      color: #555;
     }
-    details[open] summary:before{transform:rotate(90deg)}
-    .panel{padding:0 0 12px}
-    .hint{color:var(--muted);padding:0 16px 10px}
-    .table-container{padding:0 16px 16px;overflow:auto}
-    table{width:100%;border-collapse:separate;border-spacing:0;min-width:720px}
-    th,td{border:1px solid var(--line);padding:10px 12px;vertical-align:top}
-    thead th{position:sticky;top:0;background:var(--highlight);z-index:1}
-    tbody tr:nth-child(odd){background:rgba(255,255,255,0.02)}
-    tbody tr:hover{background:rgba(124,196,255,0.06)}
-    .grid{
-      display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 16px 12px
-    }
-    @media (max-width:900px){.grid{grid-template-columns:1fr}}
-    .tag{display:inline-block;font-size:.85em;color:var(--accent-2);border:1px solid var(--accent-2);padding:2px 6px;border-radius:6px;margin-left:6px}
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <h1>Skincare master kit</h1>
-    <p class="hint">Collapsible drawers contain your full 7‑day routine, product type guide, detailed facial zones, and budget shopping lists for Dollar Tree, Family Dollar, and Dollar General.</p>
 
-    <div class="topbar">
-      <button class="btn" id="expandAll">Expand all</button>
-      <button class="btn" id="collapseAll">Collapse all</button>
-    </div>
+  <h1>🧭 Welcome to Your Routine Hub</h1>
 
-    <!-- Drawer: 7-Day Routine -->
-    <details open>
-      <summary>7‑day skincare routine <span class="tag">AM + PM</span></summary>
-      <div class="panel">
-        <div class="hint">Brand‑free, ingredient‑first routine sequenced for absorption, barrier support, and results.</div>
-        <div class="table-container">
-          <table>
-            <thead>
-              <tr>
-                <th>Day</th>
-                <th>AM Routine</th>
-                <th>PM Routine</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong>Day 1</strong></td>
-                <td>Cleanser → Hydrating Toner → Vitamin C Serum → Niacinamide Serum → Hyaluronic Acid Serum → Lightweight Moisturizer → Sunscreen</td>
-                <td>Cleanser → Hydrating Toner → Retinol Serum (T‑zone & cheeks) → Hyaluronic Acid Serum → Barrier Cream (perimeter only) → Eye Cream</td>
-              </tr>
-              <tr>
-                <td><strong>Day 2</strong></td>
-                <td>Same as Day 1 AM</td>
-                <td>Cleanser → Hydrating Toner → Niacinamide + Squalane Serum → Collagen/Peptide Serum → Rich Moisturizer or Sleeping Mask → Eye Cream</td>
-              </tr>
-              <tr>
-                <td><strong>Day 3</strong></td>
-                <td>Same as Day 1 AM</td>
-                <td>Cleanser → Hydrating Toner → Retinol Serum → Hyaluronic Acid Serum → Barrier Cream (perimeter only) → Eye Cream → Optional: Facial Massage</td>
-              </tr>
-              <tr>
-                <td><strong>Day 4</strong></td>
-                <td>Same as Day 1 AM</td>
-                <td>Cleanser → Chemical Exfoliant (AHA/BHA; T‑zone & cheek center) → Hydrating Toner → Hyaluronic Acid Serum → Peptide Cream → Eye Cream → Optional: Sheet Mask</td>
-              </tr>
-              <tr>
-                <td><strong>Day 5</strong></td>
-                <td>Same as Day 1 AM</td>
-                <td>Cleanser → Hydrating Toner → Niacinamide + Squalane Serum → Collagen/Peptide Serum → Sleeping Mask or Rich Moisturizer → Eye Cream</td>
-              </tr>
-              <tr>
-                <td><strong>Day 6</strong></td>
-                <td>Same as Day 1 AM</td>
-                <td>Cleanser → Hydrating Toner → Retinol Serum → Hyaluronic Acid Serum → Barrier Cream (perimeter only) → Eye Cream</td>
-              </tr>
-              <tr>
-                <td><strong>Day 7</strong></td>
-                <td>Same as Day 1 AM</td>
-                <td>Cleanser → Clay Mask (T‑zone only) → Hydrating Toner → Hyaluronic Acid Serum → Collagen/Peptide Serum → Peptide Cream → Eye Cream → Optional: Sheet Mask or Massage</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </details>
-
-    <!-- Drawer: Product Types & Functions -->
-    <details>
-      <summary>Product types, functions, and application tips <span class="tag">Guide</span></summary>
-      <div class="panel">
-        <div class="table-container">
-          <table>
-            <thead>
-              <tr>
-                <th>Product Type</th>
-                <th>Main Function</th>
-                <th>Key Ingredients</th>
-                <th>Application Tips</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong>Cleanser</strong></td>
-                <td>Removes dirt, oil, buildup without stripping</td>
-                <td>Glycerin, Ceramides, Aloe, Low‑pH surfactants</td>
-                <td>AM & PM; massage 30–60 sec; lukewarm rinse</td>
-              </tr>
-              <tr>
-                <td><strong>Hydrating Toner / Essence</strong></td>
-                <td>Boosts hydration, preps for serums</td>
-                <td>Hyaluronic Acid, Panthenol, Green Tea, Rice Extract</td>
-                <td>Apply with hands or cotton; pat until absorbed</td>
-              </tr>
-              <tr>
-                <td><strong>Vitamin C Serum</strong></td>
-                <td>Brightens, supports collagen, antioxidant shield</td>
-                <td>L‑Ascorbic Acid, Ferulic Acid, Vitamin E</td>
-                <td>AM only; 3–5 drops; wait 1–2 min before layering</td>
-              </tr>
-              <tr>
-                <td><strong>Niacinamide Serum</strong></td>
-                <td>Minimizes pores, balances oil, evens tone</td>
-                <td>Niacinamide 5–10%, Zinc PCA, Allantoin</td>
-                <td>AM or PM; layer after Vitamin C or toner</td>
-              </tr>
-              <tr>
-                <td><strong>Hyaluronic Acid Serum</strong></td>
-                <td>Hydrates, plumps by attracting moisture</td>
-                <td>Multi‑weight HA, Vitamin B5, Glycerin</td>
-                <td>Apply to damp skin; pat into cheeks/forehead/jawline</td>
-              </tr>
-              <tr>
-                <td><strong>Retinol Serum</strong></td>
-                <td>Cell turnover, anti‑wrinkle, clears pores</td>
-                <td>Retinol 0.3–0.5%, Retinal, Bakuchiol</td>
-                <td>PM only; T‑zone & cheeks; avoid immediate heavy occlusion</td>
-              </tr>
-              <tr>
-                <td><strong>Niacinamide + Squalane Serum</strong></td>
-                <td>Barrier support, calming, oil regulation</td>
-                <td>Niacinamide, Squalane, Ceramides</td>
-                <td>Recovery nights; full face after toner</td>
-              </tr>
-              <tr>
-                <td><strong>Collagen / Peptide Serum</strong></td>
-                <td>Firmness, elasticity, anti‑aging support</td>
-                <td>Peptides (Matrixyl/Argireline), Collagen, Amino Acids</td>
-                <td>Cheeks, jawline, neck; PM after actives</td>
-              </tr>
-              <tr>
-                <td><strong>Lightweight Moisturizer</strong></td>
-                <td>Seals hydration, supports barrier</td>
-                <td>Ceramides, Glycerin, Squalane, Panthenol</td>
-                <td>AM; even layer to face & neck</td>
-              </tr>
-              <tr>
-                <td><strong>Barrier Cream / Night Mask</strong></td>
-                <td>Deep overnight hydration and repair</td>
-                <td>Ceramide NP, Shea Butter, Peptides, Allantoin</td>
-                <td>PM; perimeter on retinol nights; full face on recovery nights</td>
-              </tr>
-              <tr>
-                <td><strong>Eye Cream</strong></td>
-                <td>Puffiness, fine lines, dark circles</td>
-                <td>Caffeine, Peptides, HA, Vitamin K</td>
-                <td>AM & PM; gentle dab under eyes and crow’s feet</td>
-              </tr>
-              <tr>
-                <td><strong>Clay Mask</strong></td>
-                <td>Detox pores, absorb excess oil</td>
-                <td>Kaolin, Bentonite, Charcoal, Sulfur</td>
-                <td>1–2×/week; T‑zone only; rinse 10–15 min</td>
-              </tr>
-              <tr>
-                <td><strong>Chemical Exfoliant</strong></td>
-                <td>Removes dead skin, smooths texture, clears pores</td>
-                <td>AHA (Glycolic/Lactic), BHA (Salicylic), PHA</td>
-                <td>PM 1×/week; T‑zone + cheek center; avoid eye area</td>
-              </tr>
-              <tr>
-                <td><strong>Sheet Mask</strong></td>
-                <td>Hydration and soothing infusion</td>
-                <td>HA, Collagen, Green Tea, Ceramides</td>
-                <td>1–2×/week; after toner; 15–20 min</td>
-              </tr>
-              <tr>
-                <td><strong>Sunscreen (SPF 50+)</strong></td>
-                <td>UV protection to prevent photoaging</td>
-                <td>Zinc Oxide, Titanium Dioxide, modern chemical filters</td>
-                <td>AM; face/ears/neck; reapply every 2–3 hours outdoors</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </details>
-
-    <!-- Drawer: Facial Zone Chart -->
-    <details>
-      <summary>Facial zone chart with overlaps <span class="tag">Targeting map</span></summary>
-      <div class="panel">
-        <div class="hint">Use this to target products by zone. “Perimeter” = outer forehead, temples, cheekbones, sides of face, jawline, neck.</div>
-        <div class="table-container">
-          <table>
-            <thead>
-              <tr>
-                <th>Zone Name</th>
-                <th>Location Description</th>
-                <th>Group</th>
-                <th>Overlaps With</th>
-                <th>Best Product Types</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><td>Forehead Center</td><td>Between brows to mid‑scalp</td><td>T‑zone</td><td>Outer Forehead</td><td>Retinol, exfoliants, oil control</td></tr>
-              <tr><td>Outer Forehead</td><td>Temples and hairline edges</td><td>Perimeter</td><td>Forehead Center</td><td>Peptides, barrier creams</td></tr>
-              <tr><td>Temples</td><td>Side of forehead near eyes</td><td>Perimeter</td><td>Outer Forehead, Crow’s Feet</td><td>Hydration, calming products</td></tr>
-              <tr><td>Eyebrow Area</td><td>Directly above and below brows</td><td>Eye Zone</td><td>Forehead Center</td><td>Gentle exfoliants, brightening serums</td></tr>
-              <tr><td>Nose Bridge</td><td>Between eyebrows down to tip</td><td>T‑zone</td><td>—</td><td>Pore treatments, exfoliants</td></tr>
-              <tr><td>Nose Sides</td><td>Around nostrils and nasolabial folds</td><td>T‑zone</td><td>Inner/Cheek Center</td><td>Niacinamide, pore minimizers</td></tr>
-              <tr><td>Cheek Center</td><td>From nose outward to mid‑cheek</td><td>Central Face</td><td>T‑zone, Cheekbones</td><td>Vitamin C, niacinamide</td></tr>
-              <tr><td>Cheekbones</td><td>Outer third of cheeks</td><td>Perimeter</td><td>Cheek Center, Under‑Eye</td><td>Collagen serums, masks</td></tr>
-              <tr><td>Under‑Eye Area</td><td>Thin skin beneath eyes</td><td>Eye Zone</td><td>Cheekbones, Temples</td><td>Eye creams, peptides, caffeine</td></tr>
-              <tr><td>Crow’s Feet Area</td><td>Outer corners of eyes</td><td>Eye Zone</td><td>Temples</td><td>Anti‑wrinkle creams, low‑strength retinoids</td></tr>
-              <tr><td>Nasolabial Folds</td><td>Smile lines nose → mouth corners</td><td>Central Face</td><td>Nose Sides, Cheek Center</td><td>Anti‑aging serums</td></tr>
-              <tr><td>Upper Lip</td><td>Between nose and lip</td><td>Central Face</td><td>T‑zone</td><td>Gentle exfoliants, brightening</td></tr>
-              <tr><td>Chin Center</td><td>Tip of chin</td><td>T‑zone</td><td>Jawline</td><td>Retinol, spot treatments</td></tr>
-              <tr><td>Chin Sides</td><td>Left and right chin edges</td><td>Perimeter</td><td>Jawline</td><td>Barrier creams, firming serums</td></tr>
-              <tr><td>Jawline</td><td>Chin → ears</td><td>Perimeter</td><td>Chin Sides, Neck</td><td>Firming creams, barrier support</td></tr>
-              <tr><td>Sides of Face</td><td>Between cheekbones and ears</td><td>Perimeter</td><td>Cheekbones, Jawline</td><td>Moisturizers, masks</td></tr>
-              <tr><td>Neck</td><td>Jawline → collarbone</td><td>Perimeter</td><td>Jawline</td><td>Extend all anti‑aging products</td></tr>
-              <tr><td>Hairline</td><td>Edge where hair begins</td><td>Perimeter</td><td>Outer Forehead</td><td>Light layers; avoid heavy occlusion</td></tr>
-              <tr><td>Earlobes</td><td>Around/behind ears</td><td>Perimeter</td><td>Jawline</td><td>Sunscreen, moisturizers</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </details>
-
-    <!-- Drawer: Dollar Tree -->
-    <details>
-      <summary>Shopping list: Dollar Tree <span class="tag">Actives & add‑ons</span></summary>
-      <div class="panel">
-        <div class="hint">Cheapest source for basic actives and boosters.</div>
-        <div class="table-container">
-          <table>
-            <thead>
-              <tr>
-                <th>Product Type</th>
-                <th>Product Name / Description</th>
-                <th>Use in Routine</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Glycolic Acid Toner</td>
-                <td>Dermasil AHA Glycolic Acid Toning Solution (or similar AHA toner)</td>
-                <td>Exfoliation (Day 4 PM)</td>
-              </tr>
-              <tr>
-                <td>Niacinamide Serum</td>
-                <td>Skin Nutrition Botanicals Niacinamide + Vitamin C Serum (or similar)</td>
-                <td>AM daily; PM on recovery nights</td>
-              </tr>
-              <tr>
-                <td>Eye Cream</td>
-                <td>Skin Nutrition 3‑in‑1 Eye Treatment</td>
-                <td>AM + PM</td>
-              </tr>
-              <tr>
-                <td>Petroleum Jelly</td>
-                <td>Creamy Petroleum Jelly with Vitamin E (or plain petroleum jelly)</td>
-                <td>Barrier on perimeter (retinol nights) or slugging as needed</td>
-              </tr>
-              <tr>
-                <td>Sheet Masks</td>
-                <td>Assorted hydrating masks (green tea, honey, collagen)</td>
-                <td>Optional 1–2×/week boost</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </details>
-
-    <!-- Drawer: Family Dollar -->
-    <details>
-      <summary>Shopping list: Family Dollar <span class="tag">Cleansers & moisturizers</span></summary>
-      <div class="panel">
-        <div class="hint">Solid base layers for cleansing and daily hydration.</div>
-        <div class="table-container">
-          <table>
-            <thead>
-              <tr>
-                <th>Product Type</th>
-                <th>Product Name / Description</th>
-                <th>Use in Routine</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Gentle Cleanser</td>
-                <td>Aloe‑ or chamomile‑based facial cleanser (low‑pH if labeled)</td>
-                <td>AM + PM</td>
-              </tr>
-              <tr>
-                <td>Lightweight Moisturizer</td>
-                <td>Vitamin E or glycerin‑based daily cream (ceramides/panthenol if possible)</td>
-                <td>AM moisturizer layer</td>
-              </tr>
-              <tr>
-                <td>Sleeping Mask / Night Cream</td>
-                <td>Collagen‑ or peptide‑rich night cream</td>
-                <td>PM on recovery nights</td>
-              </tr>
-              <tr>
-                <td>Clay Mask</td>
-                <td>Charcoal or kaolin‑based detox mask</td>
-                <td>Day 7 PM (T‑zone only), 1–2×/week</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </details>
-
-    <!-- Drawer: Dollar General -->
-    <details>
-      <summary>Shopping list: Dollar General <span class="tag">Retinol, SPF, core serums</span></summary>
-      <div class="panel">
-        <div class="hint">Best budget options for retinol, sunscreen, and staple serums.</div>
-        <div class="table-container">
-          <table>
-            <thead>
-              <tr>
-                <th>Product Type</th>
-                <th>Product Name / Description</th>
-                <th>Use in Routine</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Retinol Serum</td>
-                <td>DG Health Retinol Night Serum (or equivalent store‑brand retinol/retinal)</td>
-                <td>Day 1, 3, 6 PM (retinol nights)</td>
-              </tr>
-              <tr>
-                <td>Sunscreen SPF 50+</td>
-                <td>DG Health Broad‑Spectrum Sunscreen (zinc oxide or modern chemical filters)</td>
-                <td>Daily AM; reapply as needed</td>
-              </tr>
-              <tr>
-                <td>Hyaluronic Acid Serum</td>
-                <td>DG Skin Hydration Booster (multi‑weight HA if noted)</td>
-                <td>AM daily; PM after actives</td>
-              </tr>
-              <tr>
-                <td>Collagen/Peptide Serum</td>
-                <td>DG Collagen Boosting or peptide complex serum</td>
-                <td>Day 2, 5, 7 PM (recovery/detox nights)</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </details>
-
+  <div class="link-box">
+    <a href="housecare.html">🏡 House Care</a>
+    <p>Daily, weekly, and monthly cleaning tasks with bug prevention and supply lists.</p>
   </div>
 
-  <script>
-    const expandAllBtn = document.getElementById('expandAll');
-    const collapseAllBtn = document.getElementById('collapseAll');
+  <div class="link-box">
+    <a href="mealplan.html">🍽️ Meal Plan</a>
+    <p>Budget-friendly, fruit-forward nutrition reset with realistic swaps and hydration goals.</p>
+  </div>
 
-    expandAllBtn.addEventListener('click', () => {
-      document.querySelectorAll('details').forEach(d => d.open = true);
-    });
-    collapseAllBtn.addEventListener('click', () => {
-      document.querySelectorAll('details').forEach(d => d.open = false);
-    });
-  </script>
+  <div class="link-box">
+    <a href="skincare.html">🧴 Skincare Routine</a>
+    <p>Step-by-step zone-targeted skincare with product layering and visible results tracking.</p>
+  </div>
+
 </body>
 </html>
